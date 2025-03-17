@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-require_once 'private/config/config.php';
+require_once '../../../private/database/database.php';
 
 $errors = [];
 $success = false;
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
@@ -23,18 +22,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errors)) {
         try {
-            $checkEmail = $pdo->prepare("SELECT email, mot_de_passe FROM utilisateurs WHERE email = ?");
+            $checkEmail = $pdo->prepare("SELECT email, password_hash FROM utilisateurs WHERE email = ?");
             $checkEmail->execute([$email]);
             
             if ($checkEmail->rowCount() <= 0) {
                 $errors[] = "Cet email n'existe pas.";
             } else { 
                 $user = $checkEmail->fetch();
-                if (password_verify($mot_de_passe, $user['mot_de_passe'])) {
+                if (password_verify($mot_de_passe, $user['password_hash'])) {
                     $success = true;
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['user_statut'] = 'connected';
-                    header('Location: chat_bot/index.php');
+                    header('Location: ../../index.php');
+                    exit();
                 } else {
                     $errors[] = "Mot de passe incorrect.";
                 }
@@ -44,5 +44,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 ?>
