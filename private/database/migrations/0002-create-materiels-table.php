@@ -8,9 +8,9 @@ class CreateMaterielsTable {
                 name VARCHAR(50) NOT NULL,
                 description VARCHAR(255) NOT NULL,
                 price DECIMAL(10, 2) NOT NULL,
-                picture BLOB NOT NULL
+                picture BLOB NOT NULL,
                 state ENUM('new', 'used') DEFAULT 'new',
-                availability ENUM('available', 'unavailable') DEFAULT 'available',
+                availability ENUM('available', 'unavailable') DEFAULT 'available'
             );
         ");
     }
