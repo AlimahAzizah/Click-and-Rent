@@ -13,7 +13,7 @@
     <div class="container">
         <h1 class="title">Formulaire d'inscription</h1>
 
-            <form action="add.php" method="post">
+            <form action="registration.php" method="post">
 
             <label>Votre nom</label>
             <input type="text" name="nom" value="<?= htmlspecialchars($_POST['nom'] ?? '') ?>" placeholder="Votre nom" required>
