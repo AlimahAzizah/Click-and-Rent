@@ -6,11 +6,11 @@ $errors = [];
 $success = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = trim($_POST["nom"]);
-    $prenom = trim($_POST["prenom"]);
-    $username = trim($_POST["username"]);
-    $email = trim($_POST["email"]);
-    $mot_de_passe = trim($_POST["mot_de_passe"]);
+    $nom = htmlspecialchars( trim( $_POST["nom"] ));
+    $prenom = htmlspecialchars( trim( $_POST["prenom"] ));
+    $username = htmlspecialchars( trim( $_POST["username"] ));
+    $email = htmlspecialchars( trim( $_POST["email"] ));
+    $mot_de_passe = htmlspecialchars( trim( $_POST["mot_de_passe"] ));
 
     // Validation des champs
     if (empty($nom)) $errors[] = "Le nom est requis";

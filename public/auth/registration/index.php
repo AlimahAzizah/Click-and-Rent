@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="form-container">
         <h1 class="title">Formulaire d'inscription</h1>
 
             <form action="registration.php" method="post">
