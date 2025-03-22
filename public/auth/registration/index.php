@@ -33,7 +33,7 @@
             <button type="submit">S'inscrire</button>
         </form>
 
-        <p>Déjà inscrit ? <a href="#">Connectez-vous ici</a></p>
+        <p>Déjà inscrit ? <a href="../login">Connectez-vous ici</a></p>
     </div>
 </body>
 </html>
