@@ -9,11 +9,21 @@
         .error { color: red; }
     </style>
 </head>
+<?php session_start(); ?>
 <body>
     <div class="container">
 
         <h1 class="title">Bienvenue</h1><br>
-        
+        <?php
+            if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+                echo '<div class="error">';
+                foreach ($_SESSION['errors'] as $error) {
+                    echo '<p>' . htmlspecialchars($error) . '</p>';
+                }
+                echo '</div>';
+                unset($_SESSION['errors']); // Effacer les erreurs après affichage
+            }
+        ?>
         <form action="add.php" method="post">
             <label for="email"> Email </label>
             <input type="email" name="email" id="email" placeholder="E-mail" required>
