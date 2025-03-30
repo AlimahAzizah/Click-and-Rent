@@ -1,0 +1,126 @@
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Roboto:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    z-index: 10;
+    height: 165px;
+}
+
+/* Section logo + matériels */
+.cr-logo-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    margin-left: 80px;
+    margin-right: -80px;
+}
+
+.cr-logo {
+    font-family: 'Playfair Display SC', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+}
+
+.cr-materials {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    margin-left: 70px;
+    background-color: #FD8B00;
+    width: 180px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cr-materials button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.cr-materials img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Barre de recherche */
+.cr-search-container {
+    flex: 1;
+    max-width: 440px;
+    margin: 0 40px;
+}
+
+.cr-search-input {
+    width: 440px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    border: none;
+    background-color: #F6F6F6;
+    box-shadow: 0 4px 4px #FD8B00
+}
+
+.cr-search-input:focus {
+    outline: none;
+}
+
+/* Section utilisateur */
+.cr-user-actions {
+    display: flex;
+    gap: 40px; /* Augmenté pour mieux séparer les éléments */
+    margin-right: 70px;
+}
+
+.cr-account-link, 
+.cr-cart-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cr-account-link img,
+.cr-cart-link img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.cr-account-link:hover, 
+.cr-cart-link:hover {
+    text-decoration: underline;
+}
