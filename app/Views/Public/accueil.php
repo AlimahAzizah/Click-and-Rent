@@ -106,8 +106,44 @@
             <h3 class="categorie-name">Matériel audiovisuel</h3>
             </div>
         </div>
-        </section>
+    </section>
 
+    <section id="pourquoi-nous">
+        <div class="pourquoi-container">
+            <h2>POURQUOI NOUS CHOISIR ?</h2>
+            <div class="avantages-container">
+                <div class="avantage-item">
+                    <div class="icon-circle">
+                        <img class="fas fa-euro-sign icon" src="assets/images/euro.png">
+                    </div>
+                    <h3>PRIX COMPÉTITIFS</h3>
+                </div>
+                
+                <div class="avantage-item">
+                    <div class="icon-circle">
+                        <img class="fas fa-desktop icon" src="assets/images/linformatique.png">
+                    </div>
+                    <h3>MATÉRIEL DE QUALITÉ</h3>
+                </div>
+                
+                <div class="avantage-item">
+                    <div class="icon-circle">
+                        <img class="fas fa-headset icon" src="assets/images/service-clients.png">
+                    </div>
+                    <h3>SUPPORT TECHNIQUE</h3>
+                </div>
+                
+                <div class="avantage-item">
+                    <div class="icon-circle">
+                        <img class="fas fa-clock icon" src="assets/images/louer.png">
+                    </div>
+                    <h3>FLEXIBILITÉ DE LOCATION</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br><br>
 
 
 
