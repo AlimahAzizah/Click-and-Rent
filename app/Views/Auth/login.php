@@ -1,43 +1,42 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Connexion à Click&Rent</h4>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="src/css/login.css">
+</head>
+<body>
+    <div class="Connexion">
+        <div class="SectionConnexion">
+            <div class="SeConnecter">
+                <div class="VousNAvezPasEncoreDeCompteCrErVotreCompte">
+                    <span>Vous n’avez pas encore de compte ! </span>
+                    <span class="link">Créer votre compte !</span>
                 </div>
-                <div class="card-body">
-                    <?php if (isset($_SESSION['error'])): ?>
-                        <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
-                    <?php endif; ?>
-
-                    <form action="../public/index.php?action=login" method="POST">
-                        <div class="form-group">
-                            <label for="email">Adresse Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required 
-                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" required 
-                                   minlength="8">
-                        </div>
-
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
-                            <label class="form-check-label" for="remember_me">Se souvenir de moi</label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
-                    </form>
-
-                    <div class="mt-3 text-center">
-                        <a href="/password-reset" class="text-secondary">Mot de passe oublié ?</a>
-                        <span class="mx-2">|</span>
-                        <a href="../public/index.php?action=showRegister" class="text-secondary">Créer un compte</a>
+                <form action="login_handler.php" method="POST">
+                    <div class="InputEmail">
+                        <input type="email" name="email" placeholder="Votre adresse mail" required>
                     </div>
+                    <div class="InputMotDePasse">
+                        <input type="password" name="password" placeholder="Votre mot de passe" required>
+                    </div>
+                    <button type="submit" class="Button">Se connecter</button>
+                </form>
+                <div class="PourGRerVosLocations">
+                    <span>Pour gérer vos locations,<br/></span>
                 </div>
+                <div class="ConnectezVousOuCrEzVotreCompte">
+                    <span>Connectez-vous ou créez votre compte !</span>
+                </div>
+                <img class="IconMain1" src="assets/images/icon_main.png" alt="Icone principale">
             </div>
+            <img class="Image" src="assets/images/inscription_background.png" alt="Image de présentation">
+        </div>
+        <div class="SectionLogo">
+            <img class="Fermer1" src="assets/images/fermer.png" alt="Fermer">
+            <div class="ClickRent">CLICK&RENT</div>
         </div>
     </div>
-</div>
+</body>
+</html>
