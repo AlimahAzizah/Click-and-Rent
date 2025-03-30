@@ -34,7 +34,7 @@
                     <div class="mt-3 text-center">
                         <a href="/password-reset" class="text-secondary">Mot de passe oublié ?</a>
                         <span class="mx-2">|</span>
-                        <a href="../public/index.php?page=register" class="text-secondary">Créer un compte</a>
+                        <a href="../public/index.php?action=showRegister" class="text-secondary">Créer un compte</a>
                     </div>
                 </div>
             </div>

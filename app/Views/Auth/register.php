@@ -10,7 +10,7 @@
                         <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
                     <?php endif; ?>
 
-                    <form action="/auth/register" method="POST" novalidate>
+                    <form action="../public/index.php?action=register" method="POST" novalidate>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -65,7 +65,7 @@
                     </form>
 
                     <div class="mt-3 text-center">
-                        <a href="../public/index.php?page=login" class="text-secondary">Déjà inscrit ? Connectez-vous</a>
+                        <a href="../public/index.php?action=showLogin" class="text-secondary">Déjà inscrit ? Connectez-vous</a>
                     </div>
                 </div>
             </div>

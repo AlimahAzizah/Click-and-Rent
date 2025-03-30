@@ -4,10 +4,10 @@ class CreateUsersTable {
         $connection->exec("
             CREATE TABLE IF NOT EXISTS utilisateurs (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                nom VARCHAR(100) NOT NULL,
-                prenom VARCHAR(100) NOT NULL,
-                email VARCHAR(255) NOT NULL UNIQUE,
-                mot_de_passe VARCHAR(255) NOT NULL,
+                nom VARCHAR(50) NOT NULL,
+                prenom VARCHAR(50) NOT NULL,
+                email VARCHAR(150) NOT NULL UNIQUE,
+                mot_de_passe TEXT NOT NULL,
                 role ENUM('utilisateur', 'admin') DEFAULT 'utilisateur',
                 date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );

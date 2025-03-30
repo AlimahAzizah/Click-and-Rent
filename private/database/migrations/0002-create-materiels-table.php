@@ -7,7 +7,7 @@ class CreateMaterielsTable {
                 nom VARCHAR(100) NOT NULL,
                 description TEXT,
                 etat VARCHAR(50) NOT NULL,
-                photo VARCHAR(255),
+                photo BLOB,
                 disponibilite BOOLEAN DEFAULT TRUE,
                 date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
