@@ -12,7 +12,7 @@
             <div class="SeConnecter">
                 <div class="VousNAvezPasEncoreDeCompteCrErVotreCompte">
                     <span>Vous n’avez pas encore de compte ! </span>
-                    <span class="link">Créer votre compte !</span>
+                    <a href="../public/index.php?action=showRegister" class="link">Créer votre compte !</a>
                 </div>
                 <form action="../public/index.php?action=login" method="POST">
                     <div class="InputEmail">
