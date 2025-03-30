@@ -1,150 +1,200 @@
-body {
+/* Reset de base */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Roboto, sans-serif;
-}
-
-.Connexion {
-        width: 1440px;
-        height: 778px;
-        position: relative;
-        background: white;
-   
-}
-
-.SectionConnexion {
-    width: 1440px;
-    height: 700px;
-    position: absolute;
-    top: 78px;
-}
-
-.SeConnecter {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    left: 70%;
-    top: 0;
-    background-color: white;
-}
-
-.VousNAvezPasEncoreDeCompteCrErVotreCompte {
-    position: absolute;
-    left: 169px;
-    top: 473px;
-}
-
-.VousNAvezPasEncoreDeCompteCrErVotreCompte span {
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.VousNAvezPasEncoreDeCompteCrErVotreCompte .link {
-    color: #FD8B00;
-    font-weight: 700;
-}
-
-.Button {
-    width: 400px;
-    height: 50px;
-    position: absolute;
-    left: 160px;
-    top: 399px;
-    background: #FD8B00;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    border: none;
-    color: white;
-    font-size: 24px;
-}
-
-.InputEmail,
-.InputMotDePasse {
-    width: 400px;
-    height: 50px;
-    position: absolute;
-    left: 160px;
-}
-
-.InputEmail input,
-.InputMotDePasse input {
-    width: calc(100% - 30px);
-    height: calc(100% - 10px);
-    margin-left: 15px;
-    margin-top: 5px;
-}
-
-.InputEmail {
-    top: 251px;
-}
-
-.InputMotDePasse {
-    top: 325px;
-}
-
-/* Correction pour l'alignement de l'icône avec le texte */
-.PourGRerVosLocations {
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    left: 217px;
-    top: 159px;
-    line-height: 45px;
-}
-.ConnectezVousOuCrEzVotreCompte {
-    font-family: "Roboto";
-    position: absolute;
-    left: 217px;
-    top: 190px;
-    line-height: 45px;
-}
-
-.IconMain1 {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    top: 159px;
-    left: 160px;
-}
-
-/* Correction des dimensions de l'image de présentation */
-.Image {
-    width: 63.9%;
-    height: 130%;
-    position: absolute;
-    left: 0px;
-    top: 0;
-    object-fit: cover;
-}
-
-/* Correction de l'alignement du logo et de l'image fermer */
-.SectionLogo {
-    width: 133%;
-    height: 78px;
-    /*min-width: 1440px;*/
-    position: absolute;
-    top: 0;
-    left: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Structure principale */
+  .Connexion {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header avec logo et bouton fermer */
+  .SectionLogo {
+    width: 100%;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.Fermer1 {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 24px;
-    right: 20px;
-}
-
-.ClickRent {
-    font-family: 'Playfair Display SC';
+    background-color: white;
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .ClickRent {
+    font-family: 'Playfair Display SC', serif;
     font-size: 24px;
     font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .Fermer1 {
+    width: 24px;
+    height: 24px;
     position: absolute;
-    top: 24px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  /* Conteneur principal du contenu */
+  .SectionConnexion {
+    display: flex;
+    flex: 1;
     width: 100%;
-    text-align: center;
-}
+  }
+  
+  /* Image de gauche */
+  .Image {
+    width: 75%; /* Augmenté à 65% pour correspondre à l'exemple */
+    height: 100%;
+    object-fit: cover;
+    background-color: #FFA500;
+  }
+  
+  /* Contenu de droite */
+  .SeConnecter {
+    width: 35%; /* Réduit à 35% pour compenser l'image */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changé de center à flex-start pour aligner à gauche */
+    justify-content: center;
+    padding: 0 30px;
+  }
+  
+  /* Icône et texte d'introduction alignés à gauche */
+  
+  .PourGRerVosLocations{
+    font-family: "roboto" sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-top: -8.9%;
+  }
+
+  .ConnectezVousOuCrEzVotreCompte {
+    font-size: 20px;
+    margin-top: 0%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+  }
+  
+  .IconMain1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px; /* Ajuste l'espacement entre l'icône et le texte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  
+  
+  /* Formulaire et champs */
+  form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start; /* Ajouté pour garantir l'alignement à gauche */
+  }
+  
+  .InputEmail,
+  .InputMotDePasse {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .InputEmail input,
+  .InputMotDePasse input {
+    width: 130%;
+    height: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+  
+  /* Bouton de connexion */
+  .Button {
+    width: 130%;
+    height: 50px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 15px 0 20px;
+  }
+  
+  /* Lien de création de compte */
+  .VousNAvezPasEncoreDeCompteCrErVotreCompte {
+    font-size: 19.9px;
+    text-align: flex-start;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .VousNAvezPasEncoreDeCompteCrErVotreCompte .link {
+    color: #FFA500;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  /* Media Queries pour responsive */
+  @media screen and (max-width: 768px) {
+    .SectionConnexion {
+      flex-direction: column;
+    }
+  
+    .Image {
+      width: 100%;
+      height: 35vh;
+    }
+  
+    .SeConnecter {
+      width: 100%;
+      padding: 40px 20px;
+    }
+  
+    
+    .IconMain1 {
+        margin-right: 0; /* Supprime la marge droite pour l'alignement vertical */
+        margin-bottom: 15px; /* Ajoute un espacement sous l'icône */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .ClickRent {
+      font-size: 20px;
+    }
+  
+    .Fermer1 {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .Image {
+      height: 25vh;
+    }
+  }
+  

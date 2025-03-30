@@ -8,13 +8,26 @@
 </head>
 <body>
     <div class="Connexion">
+
+        <div class="SectionLogo">
+            <img class="Fermer1" src="assets/images/fermer.png" alt="Fermer">
+            <div class="ClickRent">CLICK&RENT</div>
+        </div>
         <div class="SectionConnexion">
+            <div class="presentation">
+                <img class="Image" src="assets/images/inscription_background.png" alt="Image de présentation">
+            </div>
+            
             <div class="SeConnecter">
-                <div class="VousNAvezPasEncoreDeCompteCrErVotreCompte">
-                    <span>Vous n’avez pas encore de compte ! </span>
-                    <a href="../public/index.php?action=showRegister" class="link">Créer votre compte !</a>
+                <img class="IconMain1" src="assets/images/icon_main.png" alt="Icone principale">
+                <div class="PourGRerVosLocations">
+                    <span>Pour gérer vos locations,<br/></span>
+                </div>
+                <div class="ConnectezVousOuCrEzVotreCompte">
+                    <span>connectez-vous ou créez votre compte.</span>
                 </div>
                 <form action="../public/index.php?action=login" method="POST">
+                    
                     <div class="InputEmail">
                         <input type="email" name="email" placeholder="Votre adresse mail" required>
                     </div>
@@ -23,19 +36,11 @@
                     </div>
                     <button type="submit" class="Button">Se connecter</button>
                 </form>
-                <div class="PourGRerVosLocations">
-                    <span>Pour gérer vos locations,<br/></span>
+                <div class="VousNAvezPasEncoreDeCompteCrErVotreCompte">
+                    <span>Vous n’avez pas encore de compte ! </span>
+                    <a href="../public/index.php?action=showRegister" class="link">Créer votre compte !</a>
                 </div>
-                <div class="ConnectezVousOuCrEzVotreCompte">
-                    <span>Connectez-vous ou créez votre compte !</span>
-                </div>
-                <img class="IconMain1" src="assets/images/icon_main.png" alt="Icone principale">
             </div>
-            <img class="Image" src="assets/images/inscription_background.png" alt="Image de présentation">
-        </div>
-        <div class="SectionLogo">
-            <img class="Fermer1" src="assets/images/fermer.png" alt="Fermer">
-            <div class="ClickRent">CLICK&RENT</div>
         </div>
     </div>
 </body>
