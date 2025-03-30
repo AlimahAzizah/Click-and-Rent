@@ -27,14 +27,6 @@ class AuthController {
                     $_SESSION['user_id'] = $this->userModel->getId();
                     $_SESSION['user_role'] = $this->userModel->getRole();
                     
-                    // Remember me functionality
-                    if (isset($_POST['remember_me'])) {
-                        $token = bin2hex(random_bytes(32));
-                        setcookie('remember_token', $token, time() + 86400 * 30, '/');
-                        $this->userModel->setRememberToken($token);
-                        $this->userModel->update();
-                    }
-                    
                     header('Location: ' . __DIR__ . '/../../public/index.php?page=user-dashboard');
                     exit();
                 }
