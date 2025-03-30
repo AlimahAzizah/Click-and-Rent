@@ -107,7 +107,7 @@ class AuthController {
             setcookie('remember_token', '', time() - 3600, '/');
         }
         
-        header('Location: /index.php?action=showLogin');
+        header('Location: ../public/index.php?action=showLogin');
         exit();
     }
 }

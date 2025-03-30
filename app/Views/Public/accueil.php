@@ -63,6 +63,54 @@
     </section>
 
 
+    <section class="categorie-section">
+        <h2 class="categorie-title">Nos catégories de matériels</h2>
+        <div class="categorie-container">
+            <div class="categorie-item">
+            <img src="assets/images/ordinateur.png" alt="Ordinateurs" class="categorie-icon">
+            <h3 class="categorie-name">Ordinateurs</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/clavier-et-souris.png" alt="Périphériques informatiques" class="categorie-icon">
+            <h3 class="categorie-name">Périphériques informatiques</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/routeur-wi-fi.png" alt="Réseau & Connectivité" class="categorie-icon">
+            <h3 class="categorie-name">Réseau & Connectivité</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/disque-dur-externe.png" alt="Stockage & Sauvegarde" class="categorie-icon">
+            <h3 class="categorie-name">Stockage & Sauvegarde</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/imprimante.png" alt="Imprimantes & Scanners" class="categorie-icon">
+            <h3 class="categorie-name">Imprimantes & Scanners</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/serveur.png" alt="Serveurs & Solutions professionnelles" class="categorie-icon">
+            <h3 class="categorie-name">Serveurs & Solutions professionnelles</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/lecteur-de-cartes.png" alt="Accessoires & Divers" class="categorie-icon">
+            <h3 class="categorie-name">Accessoires & Divers</h3>
+            </div>
+            
+            <div class="categorie-item">
+            <img src="assets/images/projecteur.png" alt="Matériel audiovisuel" class="categorie-icon">
+            <h3 class="categorie-name">Matériel audiovisuel</h3>
+            </div>
+        </div>
+        </section>
+
+
+
+
     
 </body>
 </html>
