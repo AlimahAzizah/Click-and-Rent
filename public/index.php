@@ -50,7 +50,7 @@ if ($action !== null) {
             } 
             
             include __DIR__ . '/../app/Views/Layouts/header.php';
-            include __DIR__ . '/../app/Views/User/dashboard.php';
+            include __DIR__ . '/../app/Views/User/my-account.php';
             include __DIR__ . '/../app/Views/Layouts/footer.php';
 
             exit;

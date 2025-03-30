@@ -240,8 +240,8 @@ a {
     align-items: center;
     text-align: center;
     width: 220px;
-    box-shadow: 0 2px 5px #FF9F2D;
-    border: 1px solid #FF9F2D;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 4px #FD8B00;
     transition: transform 0.2s ease;
   }
   
