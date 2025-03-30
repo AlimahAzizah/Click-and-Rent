@@ -58,7 +58,7 @@
   
   /* Image de gauche */
   .Image {
-    width: 75%; /* Augmenté à 65% pour correspondre à l'exemple */
+    width: 65%; /* Augmenté à 65% pour correspondre à l'exemple */
     height: 100%;
     object-fit: cover;
     background-color: #FFA500;
@@ -161,7 +161,7 @@
   }
   
   /* Media Queries pour responsive */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .SectionConnexion {
       flex-direction: column;
     }
