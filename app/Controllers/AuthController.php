@@ -41,7 +41,7 @@ class AuthController {
             }
             
             $_SESSION['error'] = "Identifiants incorrects";
-            header('Location: ' . __DIR__ . '/../../public/index.php?page=login');
+            header('Location: ' . __DIR__ . '/../../public/index.php?action=showLogin');
             exit();
         }
     }
@@ -65,12 +65,12 @@ class AuthController {
             if ($this->validateRegistration($data)) {
                 if ($this->userModel->create($data['nom'], $data['prenom'], $data['email'], $data['password'])) {
                     $_SESSION['success'] = "Inscription réussie ! Veuillez vous connecter.";
-                    header('Location: ' . __DIR__ . '/../../public/index.php?page=login');
+                    header('Location: ' . __DIR__ . '/../../public/index.php?action=login');
                     exit();
                 }
             }
             
-            header('Location: ' . __DIR__ . '/../../public/index.php?page=register');
+            header('Location: ' . __DIR__ . '/../../public/index.php?action=showRegister');
             exit();
         }
     }
@@ -115,7 +115,7 @@ class AuthController {
             setcookie('remember_token', '', time() - 3600, '/');
         }
         
-        header('Location: ' . __DIR__ . '/../../public/index.php?page=login');
+        header('Location: ' . __DIR__ . '/../../public/');
         exit();
     }
 }
