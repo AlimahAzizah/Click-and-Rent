@@ -13,14 +13,14 @@ class AuthMiddleware {
         }
 
         if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . __DIR__ . '/../../public/index.php?page=login');
+            header('Location: ' . __DIR__ . '/../../public/index.php?action=login');
             exit();
         }
     }
 
     public function adminOnly() {
         if ($_SESSION['user_role'] !== 'admin') {
-            header('Location: /403');
+            header('Location: ' . __DIR__ . '/../../public/index.php?action=error403');
             exit();
         }
     }

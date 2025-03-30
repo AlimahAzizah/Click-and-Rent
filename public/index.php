@@ -35,7 +35,9 @@ if ($action !== null) {
     }
 } else {
     // Default to accueil page if no action is specified
+    include __DIR__ . '/../app/Views/Layouts/header.php';
     include __DIR__ . '/../app/Views/Public/accueil.php';
+    include __DIR__ . '/../app/Views/Layouts/footer.php';
     exit;
 }
 ?>
