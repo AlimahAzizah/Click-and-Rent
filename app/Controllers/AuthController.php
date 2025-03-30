@@ -19,7 +19,7 @@ class AuthController {
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-            $password = $_POST['password'];
+            $password = htmlspecialchars($_POST['password']);
 
             if ($this->userModel->readByEmail($email)) {
                 if ($this->userModel->login($email, $password)) {
