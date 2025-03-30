@@ -48,6 +48,18 @@
     transform: translateY(-50%);
     cursor: pointer;
   }
+
+  .presentation{
+    width: 65%;
+    max-width: fit-content; /* La div ne sera pas plus large que son contenu */
+    margin: 0 auto;
+  }
+
+  .presentation img {
+    width: 100%; /* Ajustez la taille de l'image selon vos besoins */
+    height: 100%; /* Conserve le ratio de l'image */
+    
+  }
   
   /* Conteneur principal du contenu */
   .SectionConnexion {
@@ -81,14 +93,14 @@
     font-family: "roboto" sans-serif;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 15%;
+    margin-left: 25%;
     margin-top: -12%;
   }
 
   .ConnectezVousOuCrEzVotreCompte {
     font-size: 20px;
     margin-top: 0%;
-    margin-left: 15%;
+    margin-left: 25%;
     margin-bottom: 10%;
   }
   
@@ -129,6 +141,7 @@
     border-radius: 10px;
     padding: 0 15px;
     font-size: 16px;
+    margin-left: 25%;
   }
   
   /* Bouton de connexion */
@@ -143,6 +156,7 @@
     font-weight: 500;
     cursor: pointer;
     margin: 15px 0 20px;
+    margin-left: 25%;
   }
   
   /* Lien de création de compte */
@@ -151,6 +165,7 @@
     text-align: flex-start;
     width: 100%;
     margin-top: 20px;
+    margin-left: 25%;
   }
   
   .VousNAvezPasEncoreDeCompteCrErVotreCompte .link {
@@ -161,7 +176,7 @@
   }
   
   /* Media Queries pour responsive */
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     .SectionConnexion {
       flex-direction: column;
     }
