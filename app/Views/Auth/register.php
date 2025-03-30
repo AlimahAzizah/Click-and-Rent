@@ -27,16 +27,16 @@
                 </div>
                 <form action= "../public/index.php?action=register" method="POST">
                     <div class="InputNom">
-                        <input type="text" placeholder="Votre nom">
+                        <input type="text" name="nom" placeholder="Votre nom">
                     </div>
                     <div class="InputPrenom">
-                        <input type="text" placeholder="Votre prénom">
+                        <input type="text" name="prenom" placeholder="Votre prénom">
                     </div>
                     <div class="InputEmail">
-                        <input type="email" placeholder="Votre adresse mail">
+                        <input type="email" name="email" placeholder="Votre adresse mail">
                     </div>
                     <div class="InputMotDePasse">
-                        <input type="password" placeholder="Votre mot de passe">
+                        <input type="password" name="password" placeholder="Votre mot de passe">
                     </div>
                     <div class="Button">
                         <button type="submit">Créer un compte</button>
