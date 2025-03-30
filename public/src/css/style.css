@@ -70,24 +70,48 @@
     width: 20px;
     height: 20px;
 }
-
 /* Barre de recherche */
 .cr-search-container {
+    position: relative; /* Nécessaire pour positionner l'icône */
     flex: 1;
     max-width: 440px;
     margin: 0 40px;
 }
 
 .cr-search-input {
-    width: 440px;
+    width: 100%; /* Prend toute la largeur du conteneur */
     height: 50px;
-    padding: 8px 15px;
+    padding: 8px 50px 8px 15px; /* Espace pour l'icône à droite */
     border-radius: 10px;
     font-size: 14px;
+    font-family: 'Roboto', sans-serif;
     border: none;
     background-color: #F6F6F6;
-    box-shadow: 0 4px 4px #FD8B00
+    box-shadow: 0 4px 4px #FD8B00;
+    transition: all 0.3s ease;
 }
+
+/* Icône de recherche */
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none; /* Permet de cliquer à travers l'icône */
+}
+
+/* Effets interactifs */
+.cr-search-input:focus {
+    outline: none;
+    box-shadow: inset 0 4px 4px rgba(253, 139, 0, 0.5);
+}
+
+.cr-search-input:focus + .search-icon {
+    filter: brightness(0.8); /* Légère modification de l'icône au focus */
+}
+
 
 .cr-search-input:focus {
     outline: none;

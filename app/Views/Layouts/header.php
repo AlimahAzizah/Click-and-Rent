@@ -7,6 +7,7 @@
     
     <div class="cr-search-container">
         <input type="text" placeholder="Rechercher par matériel" class="cr-search-input">
+        <button><img src="../../../public/assets/images/rechercher.png" alt="Rechercher" class="search-icon"></button>
     </div>
     
     <div class="cr-user-actions">
