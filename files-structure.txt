@@ -1,7 +1,6 @@
 click-and-rent/
     app/
         .htaccess
-        Router.php
         Controllers/
             Auth/
                 AuthController.php
@@ -29,6 +28,8 @@ click-and-rent/
                 accueil.php
                 boutique.php
                 panier.php
+            User/
+                dashboard.php
     private/
         backups/
         config/
@@ -55,4 +56,5 @@ click-and-rent/
                 avatars/
                 icons/
                 logos/
+            inscription_background.png
         index.php
