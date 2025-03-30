@@ -110,7 +110,7 @@ body {
 
 /* Correction des dimensions de l'image de présentation */
 .Image {
-    width: 920px;
+    width: 63.9%;
     height: 130%;
     position: absolute;
     left: 0px;
