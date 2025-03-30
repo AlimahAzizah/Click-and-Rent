@@ -27,7 +27,7 @@ class AuthController {
                     $_SESSION['user_id'] = $this->userModel->getId();
                     $_SESSION['user_role'] = $this->userModel->getRole();
                     
-                    header('Location: index.php?action=user-dashboard');
+                    header('Location: index.php?action=showUserDashboard');
                     exit();
                 }
             }

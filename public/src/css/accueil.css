@@ -1,0 +1,164 @@
+/* Tutoriel Section Styles */
+#tutoriel {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tutoriel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tutoriel-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#tutoriel h2 {
+    color: #222;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+}
+
+.steps-flow {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.step {
+    background-color: #FF9F2D;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+}
+
+.icon-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.icon-container div {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.step h3 {
+    color: #000;
+    font-size: 18px;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.step p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.step ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+}
+
+.step li {
+    margin-bottom: 5px;
+}
+
+.arrow-container {
+    width: 3rem;
+    margin: 2%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    position: relative;
+}
+
+.arrow::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+}
+
+.connect-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.connect-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .steps-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .arrow-container {
+        transform: rotate(90deg);
+        height: 50px;
+        margin: 10px 0;
+    }
+}
+
+.icon-container img {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
