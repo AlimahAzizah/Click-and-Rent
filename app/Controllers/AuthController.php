@@ -50,8 +50,7 @@ class AuthController {
                 'nom' => htmlspecialchars($_POST['nom']),
                 'prenom' => htmlspecialchars($_POST['prenom']),
                 'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL),
-                'password' => $_POST['password'],
-                'password_confirm' => $_POST['password_confirm']
+                'password' => $_POST['password']
             ];
 
             if ($this->validateRegistration($data)) {
@@ -81,11 +80,6 @@ class AuthController {
 
         if ($this->userModel->readByEmail($data['email'])) {
             $_SESSION['error'] = "Cet email est déjà utilisé";
-            return false;
-        }
-
-        if ($data['password'] !== $data['password_confirm']) {
-            $_SESSION['error'] = "Les mots de passe ne correspondent pas";
             return false;
         }
 
