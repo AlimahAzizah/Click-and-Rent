@@ -54,13 +54,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
-                            <label class="form-check-label" for="terms">
-                                J'accepte les <a href="/terms" target="_blank">conditions d'utilisation</a>
-                            </label>
-                        </div>
-
                         <button type="submit" class="btn btn-success btn-block">S'inscrire</button>
                     </form>
 

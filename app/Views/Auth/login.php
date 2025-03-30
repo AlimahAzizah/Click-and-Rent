@@ -14,7 +14,7 @@
                     <span>Vous n’avez pas encore de compte ! </span>
                     <span class="link">Créer votre compte !</span>
                 </div>
-                <form action="login_handler.php" method="POST">
+                <form action="../public/index.php?action=login" method="POST">
                     <div class="InputEmail">
                         <input type="email" name="email" placeholder="Votre adresse mail" required>
                     </div>

@@ -11,11 +11,11 @@
     </div>
     
     <div class="cr-user-actions">
-        <a href="#" class="cr-account-link">
+        <a href="../public/index.php?action=showUserDashboard" class="cr-account-link">
             <img src="assets/images/homme.png" alt="Icône compte">
             <span>Compte</span>
         </a>
-        <a href="#" class="cr-cart-link">
+        <a href="../public/index.php?action=showPanier" class="cr-cart-link">
             <img src="assets/images/panier.png" alt="Icône panier">
             <span>Mon panier</span>
         </a>

@@ -27,13 +27,13 @@ class AuthController {
                     $_SESSION['user_id'] = $this->userModel->getId();
                     $_SESSION['user_role'] = $this->userModel->getRole();
                     
-                    header('Location: ' . __DIR__ . '/../../public/index.php?page=user-dashboard');
+                    header('Location: index.php?action=user-dashboard');
                     exit();
                 }
             }
             
             $_SESSION['error'] = "Identifiants incorrects";
-            header('Location: ' . __DIR__ . '/../../public/index.php?action=showLogin');
+            header('Location: index.php?action=showLogin');
             exit();
         }
     }
@@ -57,12 +57,12 @@ class AuthController {
             if ($this->validateRegistration($data)) {
                 if ($this->userModel->create($data['nom'], $data['prenom'], $data['email'], $data['password'])) {
                     $_SESSION['success'] = "Inscription réussie ! Veuillez vous connecter.";
-                    header('Location: ' . __DIR__ . '/../../public/index.php?action=login');
+                    header('Location: index.php?action=showLogin');
                     exit();
                 }
             }
             
-            header('Location: ' . __DIR__ . '/../../public/index.php?action=showRegister');
+            header('Location: index.php?action=showRegister');
             exit();
         }
     }
@@ -107,7 +107,7 @@ class AuthController {
             setcookie('remember_token', '', time() - 3600, '/');
         }
         
-        header('Location: ' . __DIR__ . '/../../public/');
+        header('Location: /index.php?action=showLogin');
         exit();
     }
 }
