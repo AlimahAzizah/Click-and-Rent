@@ -8,9 +8,9 @@ class Material {
     private $id;
     private $nom;
     private $description;
-    private $etat;
+    private $etat; // 'neuf', 'bon', 'moyen', 'mauvais'
     private $photo;
-    private $disponibilite;
+    private $disponibilite; // true or false
     
     // Constructor
     public function __construct() {

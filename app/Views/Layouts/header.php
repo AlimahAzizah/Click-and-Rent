@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="src/css/style.css">
+
 <header class="cr-header">
     <div class="cr-logo-section">
         <div class="cr-logo">CLICK&RENT</div>

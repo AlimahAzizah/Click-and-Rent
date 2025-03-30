@@ -23,8 +23,11 @@ if ($action !== null) {
             $authController->register();
             break;
         case 'logout':
-             $authController->logout();
-             break;
+            $authController->logout();
+            include __DIR__ . '/../app/Views/Layouts/header.php';
+            include __DIR__ . '/../app/Views/Public/accueil.php';
+             include __DIR__ . '/../app/Views/Layouts/footer.php';
+            break;
         case 'showRegister':
             $authController->showRegister();
             break;
@@ -32,13 +35,13 @@ if ($action !== null) {
             $authController->showLogin();
             break;
         case 'error403':
-            include __DIR__ . '/../app/Views/Errors/403.php';
+            include __DIR__ . '/../app/Views/Errors/403.php'; // 403 Forbidden error page
             exit;
         case 'error404':
-            include __DIR__ . '/../app/Views/Errors/404.php';
+            include __DIR__ . '/../app/Views/Errors/404.php'; // 404 Not Found error page
             exit;
         case 'error500':
-            include __DIR__ . '/../app/Views/Errors/500.php';
+            include __DIR__ . '/../app/Views/Errors/500.php'; // 500 Internal Server Error page
             exit;
         case 'showUserDashboard':
             if (!isset($_SESSION['user_id'])) {
