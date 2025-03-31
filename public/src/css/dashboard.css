@@ -1,13 +1,16 @@
 /* Votre CSS existant avec les modifications */
 .user-dashboard {
     width: 300px;
-    margin-left: 20px;
     font-family: 'Roboto', sans-serif;
-    position: relative;
-    top: 100px;
-    left: 300px;
-    float: left; /* Nouveau - fait flotter à gauche */
-    margin-right: 30px; /* Nouveau - espace entre les colonnes */
+    position: fixed;
+    top: 167px; /* Ajustez cette valeur selon la hauteur de votre header principal */
+    left: 0;
+    bottom: 0; /* S'étend jusqu'en bas */
+    margin: 0;
+    background-color: #F2F2F2;
+    z-index: 1000;
+    overflow-y: auto; /* Scroll si contenu trop long */
+    border-right: 1px solid #ddd; /* Optionnel */
 }
 
 .user-header {
@@ -101,10 +104,7 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.navigation__tab:focus {
-    outline: 2px solid rgb(0, 0, 0);
-    outline-offset: -2px;
-}
+
 
 .navigation__tab:active {
     background-color: rgba(0, 0, 0, 0.1);
@@ -113,18 +113,20 @@
 
 .user-form {
     background-color: #F2F2F2;
-    border-radius: 8px 8px 0 0;
     padding: 30px;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Changé pour empiler les éléments */
+    justify-content: center; /* Centre verticalement */
     width: 1200px;
     height: 500px;
-    float: left; /* Nouveau - fait flotter à droite du dashboard */
-    margin-top: 100px; /* Alignement avec le dashboard */
-    overflow: hidden; /* Nouveau - contient les éléments internes */
-    margin-left: 300px;
+    margin: 100px auto 0; /* Centrage horizontal */
+    margin-left: 300px; /* Marge pour le dashboard */
     font-family: 'Roboto', sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    left: 14%;
 }
+
 
 /* Clearfix pour les éléments flottants */
 body::after {
@@ -197,4 +199,152 @@ body::after {
 .validate-form-btn:hover {
     background-color: #FD8B00;
     color: white;
+}
+
+.user-history{
+    
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* Changé pour empiler les éléments */
+    justify-content: center; /* Centre verticalement */
+    width: 1500px;
+    height: 600px;
+    margin: 100px auto 0; /* Centrage horizontal */
+    margin-left: 300px; /* Marge pour le dashboard */
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    left: 8%;
+}
+
+.user-current{
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* Changé pour empiler les éléments */
+    justify-content: top; /* Centre verticalement */
+    width: 1500px;
+    height: 600px;
+    margin: 100px auto 0; /* Centrage horizontal */
+    margin-left: 300px; /* Marge pour le dashboard */
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    left: 8%;
+}
+
+.current-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.current-table th {
+    background-color: #FD8B00;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    height: 50px;
+}
+
+.current-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    height: 100px;
+}
+
+.current-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Styles pour les statuts */
+.status-active {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.status-ended {
+    background-color: #6c757d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.status-pending {
+    background-color: #ffc107;
+    color: #212529;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.user-history {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alignement à gauche */
+    justify-content: flex-start; /* Contenu collé en haut */
+    width: 1500px;
+    height: 600px;
+    margin: 100px auto 0;
+    margin-left: 300px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    left: 8%;
+}
+
+.history-table {
+    width: 100%;
+    margin-top: 0; /* Supprime toute marge haute */
+    /* Autres styles conservés */
+}
+
+/* Tableau historique - Version avec classe */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.history-table th {
+    background-color: #FD8B00;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    height: 50px;
+}
+
+.history-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    height: 100px;
+}
+
+.history-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Classes de statut */
+.history-table .status-active {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.history-table .status-ended {
+    background-color: #6c757d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
 }
