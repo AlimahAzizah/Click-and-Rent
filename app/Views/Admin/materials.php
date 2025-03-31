@@ -1,70 +1,86 @@
-<!-- Views/admin/materials.php -->
-<div class="container-fluid mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Gestion des Matériels</h1>
-        <a href="index.php?action=showCreateForm" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Ajouter un Matériel
-        </a>
-    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLICK&RENT</title>
+    <link rel="stylesheet" href="src/css/admin.css">
+</head>
+<body>
+    <?php include_once 'header.php'; ?>
     
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>État</th>
-                        <th>Disponibilité</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($materials as $material): ?>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">A</div>
+                <div class="username">Admin</div>
+                <a href="index.php?action=logout" class="logout-btn">ME DÉCONNECTER</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.php?action=showAdminMaterials">Listes des matériaux</a></li>
+                <li class="nav-item"><a href="index.php?action=showAdminLoanHistory">Historique des prêts</a></li>
+                <li class="nav-item"><a href="index.php?action=showAdminCurrentLoan">Demandes en cours</a></li>
+                <li class="nav-item"><a href="index.php?action=showAdminWaitingLoan">Demandes en attente</a></li>
+            </ul>
+        </div>
+
+        <section class="material_list">
+            <div class="table-container">
+                <table class="materials-table">
+                    <thead>
                         <tr>
-                            <td><?= $material['id'] ?></td>
-                            <td>
-                                <img src="<?= $material['photo'] ?>" class="img-thumbnail" 
-                                     style="max-width: 50px;" alt="<?= $material['nom'] ?>">
-                            </td>
-                            <td><?= $material['nom'] ?></td>
-                            <td><?= substr($material['description'], 0, 50) . '...' ?></td>
-                            <td><?= $material['etat'] ?></td>
-                            <td>
-                                <span class="badge <?= $material['disponibilite'] ? 'badge-success' : 'badge-danger' ?>">
-                                    <?= $material['disponibilite'] ? 'Disponible' : 'Indisponible' ?>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <a href="index.php?action=showEditForm&id=<?= $material['id'] ?>" 
-                                       class="btn btn-warning btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="index.php?action=deleteMaterial&id=<?= $material['id'] ?>" 
-                                       class="btn btn-danger btn-sm" 
-                                       onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce matériel?')">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                    <?php if($material['disponibilite']): ?>
-                                        <a href="index.php?action=markAsUnavailable&id=<?= $material['id'] ?>" 
-                                           class="btn btn-secondary btn-sm">
-                                            <i class="fas fa-ban"></i>
-                                        </a>
-                                    <?php else: ?>
-                                        <a href="index.php?action=markAsAvailable&id=<?= $material['id'] ?>" 
-                                           class="btn btn-success btn-sm">
-                                            <i class="fas fa-check"></i>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Catégorie</th>
+                            <th>État</th>
+                            <th>Quantité</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MAT-001</td>
+                            <td>Ordinateur Portable HP EliteBook</td>
+                            <td>Informatique</td>
+                            <td><span class="status-badge new">Neuf</span></td>
+                            <td>15</td>
+                            <td class="actions">
+                                <button class="edit-btn" title="Modifier">✏️</button>
+                                <button class="delete-btn" title="Supprimer">🗑️</button>
+                                <button class="details-btn" title="Voir détails">👁️</button>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                        <tr>
+                            <td>MAT-002</td>
+                            <td>Imprimante Laser Epson</td>
+                            <td>Bureautique</td>
+                            <td><span class="status-badge good-state">Bon état</span></td>
+                            <td>8</td>
+                            <td class="actions">
+                                <button class="edit-btn" title="Modifier">✏️</button>
+                                <button class="delete-btn" title="Supprimer">🗑️</button>
+                                <button class="details-btn" title="Voir détails">👁️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MAT-003</td>
+                            <td>Vidéoprojecteur BenQ</td>
+                            <td>Audiovisuel</td>
+                            <td><span class="status-badge out-of-service">Hors service</span></td>
+                            <td>2</td>
+                            <td class="actions">
+                                <button class="edit-btn" title="Modifier">✏️</button>
+                                <button class="delete-btn" title="Supprimer">🗑️</button>
+                                <button class="details-btn" title="Voir détails">👁️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        
     </div>
-</div>
+</body>
+</html>
