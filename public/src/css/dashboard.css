@@ -1,0 +1,200 @@
+/* Votre CSS existant avec les modifications */
+.user-dashboard {
+    width: 300px;
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    top: 100px;
+    left: 300px;
+    float: left; /* Nouveau - fait flotter à gauche */
+    margin-right: 30px; /* Nouveau - espace entre les colonnes */
+}
+
+.user-header {
+    background-color: #F2F2F2;
+    border-radius: 8px 8px 0 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #4e73df;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logout-container {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.logout-btn {
+    background-color: white;
+    border: solid 2px #FD8B00;
+    color: #FD8B00;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #FD8B00;
+    color: white;
+}
+
+.navigation {
+    background-color: #F2F2F2;
+    border-radius: 0 0 8px 8px;
+    margin-top: -1px;
+}
+
+.navigation__tab {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    background: none;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.navigation a {
+    text-decoration: none;
+    color: inherit; /* Utilise la couleur du parent */
+}
+
+.navigation__tab:last-child {
+    border-bottom: none;
+}
+
+.navigation__tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navigation__tab:focus {
+    outline: 2px solid rgb(0, 0, 0);
+    outline-offset: -2px;
+}
+
+.navigation__tab:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.user-form {
+    background-color: #F2F2F2;
+    border-radius: 8px 8px 0 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    height: 500px;
+    float: left; /* Nouveau - fait flotter à droite du dashboard */
+    margin-top: 100px; /* Alignement avec le dashboard */
+    overflow: hidden; /* Nouveau - contient les éléments internes */
+    margin-left: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Clearfix pour les éléments flottants */
+body::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Styles pour le formulaire */
+.coordonnees-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    
+    
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.form-group input {
+    width: 260px;
+    height: 50px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4e73df;
+    outline: none;
+}
+
+.validate-form-btn {
+    background-color: white;
+    border: solid 2px #FD8B00;
+    color: #FD8B00;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.validate-form-btn:hover {
+    background-color: #FD8B00;
+    color: white;
+}
