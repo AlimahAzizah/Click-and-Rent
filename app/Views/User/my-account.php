@@ -16,14 +16,14 @@
         </div>
         
         <div class="logout-container">
-            <a href="#" class="logout-btn">ME DÉCONNECTER</a>
+            <a href="index.php?action=logout" class="logout-btn">ME DÉCONNECTER</a>
         </div>
     </div>
 
     <nav class="navigation">
-        <button class="navigation__tab"><a href="my-account.php">Mes informations</a></button>
-        <button class="navigation__tab"><a href="loans-history.php">Historique des prêts</a></button>
-        <button class="navigation__tab"><a href="my-current-loans.php">Demandes en cours</a></button>
+        <button class="navigation__tab"><a href="index.php?action=showMyAccount">Mes informations</a></button>
+        <button class="navigation__tab"><a href="index.php?action=showLoanHistory">Historique des prêts</a></button>
+        <button class="navigation__tab"><a href="index.php?action=showMyCurrentLoan">Demandes en cours</a></button>
     </nav>
 </section>
 

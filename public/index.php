@@ -51,7 +51,39 @@ if ($action !== null) {
             
             include __DIR__ . '/../app/Views/Layouts/header.php';
             include __DIR__ . '/../app/Views/User/my-account.php';
-            include __DIR__ . '/../app/Views/Layouts/footer.php';
+
+            exit;
+
+        case 'showMyAccount':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+            
+            include __DIR__ . '/../app/Views/Layouts/header.php';
+            include __DIR__ . '/../app/Views/User/my-account.php';
+
+            exit;
+
+        case 'showLoanHistory':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+            
+            include __DIR__ . '/../app/Views/Layouts/header.php';
+            include __DIR__ . '/../app/Views/User/loans-history.php';
+
+            exit;
+        
+        case 'showMyCurrentLoan':   
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+            
+            include __DIR__ . '/../app/Views/Layouts/header.php';
+            include __DIR__ . '/../app/Views/User/my-current-loans.php';
 
             exit;
 
