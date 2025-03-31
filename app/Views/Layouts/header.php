@@ -5,6 +5,7 @@
         <div class="cr-logo">CLICK&RENT</div>
         <div class="cr-materials">
             <button>Nos matériels <img src="assets/images/vers-le-bas.png" alt="vers le vers-le-bas"></div></button>
+        </div>
     </div>
     
     <div class="cr-search-container">
