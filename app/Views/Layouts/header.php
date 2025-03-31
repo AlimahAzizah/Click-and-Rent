@@ -2,7 +2,7 @@
 
 <header class="cr-header">
     <div class="cr-logo-section">
-        <div class="cr-logo">CLICK&RENT</div>
+        <a href="../public/" class="cr-account-link"><div class="cr-logo">CLICK&RENT</div></a>
         <div class="cr-materials">
             <button>Nos matériels <img src="assets/images/vers-le-bas.png" alt="vers le vers-le-bas"></div></button>
         </div>
@@ -14,7 +14,7 @@
     </div>
     
     <div class="cr-user-actions">
-        <a href="../public/index.php?action=showUserDashboard" class="cr-account-link">
+        <a href="../public/index.php?action=showMyAccount" class="cr-account-link">
             <img src="assets/images/homme.png" alt="Icône compte">
             <span>Compte</span>
         </a>

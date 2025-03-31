@@ -226,3 +226,11 @@ form {
         height: 25vh;
     }
 }
+
+.cr-account-link {
+    color: #FFA500;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+  }
