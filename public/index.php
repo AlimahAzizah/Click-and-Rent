@@ -5,11 +5,11 @@ session_start();
 // Include necessary files
 require_once __DIR__ . '/../app/Models/User.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
-require_once __DIR__ . '/../app/Middleware/AuthMiddleware.php';
+require_once __DIR__ . '/../app/Middleware/AdminMiddleware.php';
 require_once __DIR__ . '/../app/Models/Database.php';
 
 $authController = new AuthController();
-$authMiddleware = new AuthMiddleware();
+$adminMiddleware = new AdminMiddleware();
 
 // Handle different actions
 $action = isset($_GET['action']) ? $_GET['action'] : null;
@@ -103,7 +103,7 @@ if ($action !== null) {
                 exit;
             } 
 
-            if ($authMiddleware->adminOnly()) {
+            if ($adminMiddleware->handle()) {
                 include __DIR__ . '/../app/Views/Admin/dashboard.php';
             } else {
                 include __DIR__ . '/../app/Views/Errors/403.php';

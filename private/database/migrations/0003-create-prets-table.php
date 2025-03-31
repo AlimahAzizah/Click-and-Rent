@@ -10,6 +10,7 @@ class CreatePretsTable {
                 date_fin DATE NOT NULL,
                 statut ENUM('en_attente', 'accepte', 'refuse', 'en_cours', 'retourne', 'termine') DEFAULT 'en_attente',
                 date_demande TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id) ON DELETE CASCADE,
                 FOREIGN KEY (id_materiel) REFERENCES materiels(id) ON DELETE CASCADE
             );

@@ -9,7 +9,8 @@ class CreateUsersTable {
                 email VARCHAR(150) NOT NULL UNIQUE,
                 mot_de_passe TEXT NOT NULL,
                 role ENUM('utilisateur', 'admin') DEFAULT 'utilisateur',
-                date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                date_modification TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             );
         ");
     }
