@@ -16,7 +16,7 @@
             <div class="user-profile">
                 <div class="avatar">JD</div>
                 <div class="username">John DOE</div>
-                <a href="#" class="logout-btn">ME DÉCONNECTER</a>
+                <a href="index.php?action=logout" class="logout-btn">ME DÉCONNECTER</a>
             </div>
             
             <ul class="nav-menu">
