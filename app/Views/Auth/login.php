@@ -10,8 +10,8 @@
     <div class="Connexion">
 
         <div class="SectionLogo">
-            <img class="Fermer1" src="assets/images/fermer.png" alt="Fermer">
-            <div class="ClickRent">CLICK&RENT</div>
+        <a href="../public/" class="link"><img class="Fermer1" src="assets/images/fermer.png" alt="Fermer"></a>
+            <a href="../public/" class="cr-account-link"><div class="ClickRent">CLICK&RENT</div></a>
         </div>
         <div class="SectionConnexion">
             <div class="presentation">
