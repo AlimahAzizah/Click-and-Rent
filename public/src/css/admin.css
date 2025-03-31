@@ -75,7 +75,7 @@ body {
 .avatar {
     width: 100px;
     height: 100px;
-    background-color: #4e73df;
+    background-color: #000;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -292,4 +292,112 @@ body {
 .status-badge.en_cours{
     background-color: #e6f7ee;
     color: #555;
+}
+.material_list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 1200px; /* Ajustez cette valeur selon vos besoins */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.materials-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.materials-table th {
+    background-color: #EA81CC;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.materials-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.materials-table tr:hover {
+    background-color: #fafafa;
+}
+
+/* Styles pour les badges d'état */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-badge.new {
+    background-color: #e6f7ee;
+    color: #28a745;
+}
+
+.status-badge.good-state {
+    background-color: #e7f1ff;
+    color: #4e73df;
+}
+
+.status-badge.out-of-service {
+    background-color: #fdecea;
+    color: #dc3545;
+}
+
+/* Styles pour les boutons d'action */
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn, .delete-btn, .details-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.edit-btn {
+    color: #4e73df;
+}
+
+.edit-btn:hover {
+    background-color: #e7f1ff;
+}
+
+.delete-btn {
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #fdecea;
+}
+
+.details-btn {
+    color: #6c757d;
+}
+
+.details-btn:hover {
+    background-color: #f8f9fa;
+}
+
+/* Style pour la colonne quantité */
+.materials-table td:nth-child(5) {
+    text-align: center;
+    font-weight: 500;
 }
