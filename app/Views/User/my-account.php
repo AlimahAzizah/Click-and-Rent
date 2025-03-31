@@ -3,55 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coordonnées</title>
+    <title>Tableau de bord utilisateur</title>
     <link rel="stylesheet" href="src/css/dashboard.css">
 </head>
 <body>
-<section class="user-dashboard">
-    <div class="user-header">
-        <div class="avatar">JD</div>
-        
-        <div class="user-info">
-            <div class="username">John DOE</div>
+    <header>
+        <!-- Votre contenu de header ici -->
+    </header>
+    
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">JD</div>
+                <div class="username">John DOE</div>
+                <a href="#" class="logout-btn">ME DÉCONNECTER</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.php?action=showMyAccount">Mes informations</a></li>
+                <li class="nav-item"><a href="index.php?action=showLoanHistory">Historique des prêts</a></li>
+                <li class="nav-item"><a href="index.php?action=showMyCurrentLoan">Demandes en cours</a></li>
+            </ul>
         </div>
         
-        <div class="logout-container">
-            <a href="index.php?action=logout" class="logout-btn">ME DÉCONNECTER</a>
+        <div class="main-content">
+            <div class="form-container">
+                <h1 class="form-title">COORDONNÉES</h1>
+                
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <button type="submit" class="submit-btn">Valider</button>
+            </div>
         </div>
     </div>
-
-    <nav class="navigation">
-        <button class="navigation__tab"><a href="index.php?action=showMyAccount">Mes informations</a></button>
-        <button class="navigation__tab"><a href="index.php?action=showLoanHistory">Historique des prêts</a></button>
-        <button class="navigation__tab"><a href="index.php?action=showMyCurrentLoan">Demandes en cours</a></button>
-    </nav>
-</section>
-
-<section class="user-form">
-    <form class="coordonnees-form">
-        <h2 class="form-title">COORDONNÉES</h2>
-        
-        <div class="form-group">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        
-        <button type="submit" class="validate-form-btn">Valider</button>
-    </form>
-</section>
-
-
-        
-   
 </body>
 </html>
