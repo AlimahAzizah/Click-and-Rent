@@ -11,47 +11,50 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 20px;
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Roboto', sans-serif;
     position: relative;
     z-index: 10;
-    height: 165px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 /* Section logo + matériels */
 .cr-logo-section {
     display: flex;
     flex-direction: column;
-    min-width: 150px;
-    margin-left: 80px;
-    margin-right: -80px;
+    min-width: 120px;
+    margin-left: 0;
+    margin-right: 0;
+    order: 1;
 }
 
 .cr-logo {
     font-family: 'Playfair Display SC', serif;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 700;
     color: #000;
     line-height: 1;
 }
 
 .cr-materials {
-    font-size: 16px;
+    font-size: 14px;
     color: black;
     font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: -20px;
-    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 0;
     background-color: #FD8B00;
-    width: 180px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .cr-materials button {
@@ -64,24 +67,28 @@
     margin: 0;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .cr-materials img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
 }
+
 /* Barre de recherche */
 .cr-search-container {
-    position: relative; /* Nécessaire pour positionner l'icône */
-    flex: 1;
-    max-width: 440px;
-    margin: 0 40px;
+    position: relative;
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 10px 0;
+    order: 3;
 }
 
 .cr-search-input {
-    width: 100%; /* Prend toute la largeur du conteneur */
-    height: 50px;
-    padding: 8px 50px 8px 15px; /* Espace pour l'icône à droite */
+    width: 100%;
+    height: 45px;
+    padding: 8px 45px 8px 15px;
     border-radius: 10px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
@@ -97,9 +104,9 @@
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    pointer-events: none; /* Permet de cliquer à travers l'icône */
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
 }
 
 /* Effets interactifs */
@@ -109,19 +116,15 @@
 }
 
 .cr-search-input:focus + .search-icon {
-    filter: brightness(0.8); /* Légère modification de l'icône au focus */
-}
-
-
-.cr-search-input:focus {
-    outline: none;
+    filter: brightness(0.8);
 }
 
 /* Section utilisateur */
 .cr-user-actions {
     display: flex;
-    gap: 40px; /* Augmenté pour mieux séparer les éléments */
-    margin-right: 70px;
+    gap: 20px;
+    margin-right: 0;
+    order: 2;
 }
 
 .cr-account-link, 
@@ -129,8 +132,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    font-size: 16px;
+    gap: 5px;
+    font-size: 14px;
     color: #333;
     text-decoration: none;
     font-weight: 500;
@@ -138,8 +141,8 @@
 
 .cr-account-link img,
 .cr-cart-link img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -147,4 +150,92 @@
 .cr-account-link:hover, 
 .cr-cart-link:hover {
     text-decoration: underline;
+}
+
+/* Media Queries pour les écrans moyens */
+@media (min-width: 768px) {
+    .cr-header {
+        height: 120px;
+        padding: 15px 30px;
+        flex-wrap: nowrap;
+        gap: 0;
+    }
+    
+    .cr-logo-section {
+        min-width: 150px;
+        margin-left: 20px;
+        margin-right: 0;
+        order: 1;
+    }
+    
+    .cr-logo {
+        font-size: 32px;
+    }
+    
+    .cr-materials {
+        font-size: 15px;
+        margin-top: 15px;
+        margin-left: 30px;
+        width: 160px;
+        height: 45px;
+    }
+    
+    .cr-search-container {
+        flex: 1;
+        max-width: 440px;
+        margin: 0 20px;
+        order: 2;
+    }
+    
+    .cr-user-actions {
+        gap: 30px;
+        margin-right: 20px;
+        order: 3;
+    }
+}
+
+/* Media Queries pour les grands écrans */
+@media (min-width: 1024px) {
+    .cr-header {
+        height: 165px;
+    }
+    
+    .cr-logo {
+        font-size: 40px;
+    }
+    
+    .cr-logo-section {
+        margin-left: 80px;
+        margin-right: -80px;
+    }
+    
+    .cr-materials {
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: -20px;
+        margin-left: 70px;
+        width: 180px;
+        height: 50px;
+    }
+    
+    .cr-search-container {
+        margin: 0 40px;
+    }
+    
+    .cr-user-actions {
+        gap: 40px;
+        margin-right: 70px;
+    }
+    
+    .cr-account-link, 
+    .cr-cart-link {
+        font-size: 16px;
+        gap: 8px;
+    }
+    
+    .cr-account-link img,
+    .cr-cart-link img {
+        width: 50px;
+        height: 50px;
+    }
 }
