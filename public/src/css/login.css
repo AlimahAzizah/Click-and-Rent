@@ -1,3 +1,5 @@
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Roboto:wght@400;500&display=swap');
 /* Reset de base */
 * {
     box-sizing: border-box;
@@ -34,7 +36,7 @@
   
   .ClickRent {
     font-family: 'Playfair Display SC', serif;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
