@@ -42,13 +42,13 @@
                 <td>Produit A</td>
                 <td>15/01/2023</td>
                 <td>20/02/2023</td>
-                <td><span class="status-active">Accepté</span></td>
+                <td><span class="status-ended">Terminé</span></td>
             </tr>
             <tr>
                 <td>Produit B</td>
                 <td>01/03/2023</td>
                 <td>15/04/2023</td>
-                <td><span class="status-ended">En attente</span></td>
+                <td><span class="status-ended">Terminé</span></td>
             </tr>
             <!-- Ajoutez d'autres lignes selon vos besoins -->
         </tbody>
