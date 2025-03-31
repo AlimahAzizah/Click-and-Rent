@@ -1,0 +1,192 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #F2F2F2;
+}
+
+.section-tableau-de-bord {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.conteneur {
+    width: 90%;
+    max-width: 1316px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.titre-panier {
+    text-align: center;
+    color: #FD8B00;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.contenu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.tableau-wrapper {
+    flex: 1;
+    min-width: 300px;
+    overflow-x: auto;
+}
+
+.tableau-produits {
+    width: 50%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.tableau-produits th {
+    background: #6D6D6D;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 1%;
+    text-align: left;
+}
+
+.tableau-produits td {
+    font-size: 20px;
+    font-weight: 300;
+    padding: 13px;
+    border: 1px solid #6D6D6D;
+}
+
+.tableau-produits td img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 13px;
+}
+
+.tableau-produits td input.date-input {
+    font-size: 20px;
+    font-family: Roboto;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: -2px 0;
+    width: 100%;
+    color: black;
+}
+
+.tableau-produits td input.date-input::-webkit-calendar-picker-indicator {
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tableau-produits td input.date-input:focus {
+    outline: none;
+    box-shadow: 0 0 3px #FD8B00;
+}
+
+.section-reservation {
+    flex: 0 1 375px;
+    min-width: 280px;
+    height: auto;
+    background: #FFC278;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nombre-produits {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.bouton-reserver {
+    width: 200px;
+    height: 40px;
+    background: #FD8B00;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.bouton-reserver:hover {
+    opacity: 0.9;
+}
+
+/* Media Queries Responsive */
+@media (max-width: 768px) {
+    .conteneur {
+        width: 95%;
+        padding: 10px 0;
+    }
+    
+    .contenu {
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 20px;
+    }
+    
+    .tableau-wrapper {
+        width: 100%;
+        overflow-x: visible;
+    }
+    
+    .tableau-produits {
+        min-width: unset;
+    }
+    
+    .section-reservation {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .titre-panier {
+        font-size: 28px;
+    }
+    
+    .tableau-produits th,
+    .tableau-produits td {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .tableau-produits td img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .bouton-reserver {
+        width: 100%;
+        max-width: 200px;
+        font-size: 20px;
+    }
+    
+    .nombre-produits {
+        font-size: 20px;
+    }
+}
