@@ -240,6 +240,13 @@ if ($action !== null) {
             $materialController->showMaterialDetails($id);
             exit;
 
+        case 'showBoutique':
+
+            include __DIR__ . '/../app/Views/Layouts/header.php';
+            include __DIR__ . '/../app/Views/Public/boutique.php';
+            include __DIR__ . '/../app/Views/Layouts/footer.php';
+            exit;
+
         
         default:
             include __DIR__ . '/../app/Views/Layouts/header.php';
