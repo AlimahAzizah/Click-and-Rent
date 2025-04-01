@@ -132,6 +132,22 @@ body {
     opacity: 0.9;
 }
 
+/* Add to existing CSS */
+.tableau-produits tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.tableau-produits tr:hover {
+    background-color: #f0f0f0;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    padding: 15px;
+}
+
+
 /* Media Queries Responsive */
 @media (max-width: 768px) {
     .conteneur {
