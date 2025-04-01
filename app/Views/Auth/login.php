@@ -28,8 +28,10 @@
                 </div>
                 <form action="../public/index.php?action=login" method="POST">
                     <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
+                        if (isset($_SESSION['error'])) {
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        }
                     ?>
                     <div class="InputEmail">
                         <input type="email" name="email" placeholder="Votre adresse mail" required>

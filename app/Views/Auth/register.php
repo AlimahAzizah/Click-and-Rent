@@ -28,8 +28,10 @@
                 
                 <form action= "../public/index.php?action=register" method="POST">
                     <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
+                        if (isset($_SESSION['error'])) {
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        }
                     ?>
                     <div class="InputNom">
                         <input type="text" name="nom" placeholder="Votre nom">
