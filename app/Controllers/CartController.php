@@ -27,12 +27,11 @@ class CartController {
     }
     
     // Add an item to the cart
-    public function addToCart() {
+    public function addToCart($id_materiel) {
         // Check if user is authenticated
         $this->ensureAuthenticated();
         
         // Get material ID from request
-        $id_materiel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         if (!$id_materiel) {
             $_SESSION['error'] = "ID de matériel invalide";
             header('Location: index.php?action=getMaterialsCatalogue');

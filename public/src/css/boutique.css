@@ -55,7 +55,18 @@ h1 {
     color: #333;
 }
 
-.product-price {
+.product-availability {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-available {
+    color: #2a9d8f;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-unavailable {
     color: #e63946;
     font-weight: bold;
     margin: 10px 0;
@@ -75,4 +86,9 @@ h1 {
 
 .add-to-cart:hover {
     background-color: #faa742;
+}
+
+
+.btn-details {
+    text-decoration: none;
 }

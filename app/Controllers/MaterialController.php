@@ -283,7 +283,7 @@ class MaterialController {
     // Function to get materials for the catalogue (for everyone)
     public function getMaterialsCatalogue() {
         $materials = $this->materialModel->readAllAvailable();
-        require_once __DIR__ . '/../Views/material/catalogue.php';
+        require_once __DIR__ . '/../Views/Public/Boutique.php';
     }
 
     // Function to show material details

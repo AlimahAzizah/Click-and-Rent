@@ -8,35 +8,43 @@
 </head>
 <body>
 <main>
+    <?php require_once __DIR__ . '/../../Models/Material.php';
+
+    $model = new Material();
+    $materials = $model->readAll();
+
+    ?>
     <h1>Nos Produits</h1>
     <section class="products-grid">
-        <!-- Produit 1 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200?text=Produit+1" alt="Produit 1" class="product-image">
-            <div class="product-info">
-                <div class="product-name">Ordinateur Portable HP</div>
-                <button class="add-to-cart">Ajouter au panier</button>
+    <?php foreach ($materials as $material): ?>
+            <a href="index.php?action=showMaterialDetails&id=<?= $material['id'] ?>" class="btn-details">
+            <div class="product-card">
+                <?php if (!empty($material['photo'])): ?>
+                    <img src="<?= $material['photo'] ?>" alt="<?= $material['nom'] ?>" class="product-image">
+                <?php else: ?>
+                    <img src="public/assets/images/no-image.png" alt="Pas d'image" class="product-image">
+                <?php endif; ?>
+                <div class="product-info">
+                    <div class="product-name"><?= $material['nom'] ?></div>
+                    <div class="material-status">
+                        <?php if ($material['disponibilite']): ?>
+                            <span class="product-available">Disponible</span>
+                        <?php else: ?>
+                            <span class="product-unavailable">Indisponible</span>
+                        <?php endif; ?>
+                    </div>
+                    <br>
+                    <div class="material-actions">
+                        <?php if ($material['disponibilite']): ?>
+                            <a href="index.php?action=addToCart&id=<?= $material['id'] ?>" class="btn-add"><button class="add-to-cart">Ajouter au panier</button></a>
+                        <?php else: ?>
+                            <button class="add-to-cart">Ajouter au panier</button>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <!-- Produit 2 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200?text=Produit+2" alt="Produit 2" class="product-image">
-            <div class="product-info">
-                <div class="product-name">Smartphone Samsung</div>
-                <button class="add-to-cart">Ajouter au panier</button>
-            </div>
-        </div>
-        
-        <!-- Produit 3 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300x200?text=Produit+3" alt="Produit 3" class="product-image">
-            <div class="product-info">
-                <div class="product-name">Casque Audio Sony</div>
-                <button class="add-to-cart">Ajouter au panier</button>
-            </div>
-        </div>
-        
+            </a>
+        <?php endforeach; ?>
         
     </section>
 </main>

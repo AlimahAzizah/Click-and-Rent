@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Models/Material.php';
+require_once __DIR__ . '/../../Models/Material.php';
 $materialModel = new Material();
 
 // Start session if not already started
@@ -9,6 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
 <section class="section-tableau-de-bord">
+    <link rel="stylesheet" href="src/css/panier.css">
     <div class="conteneur">
         <h1 class="titre-panier">Votre panier</h1>
         
