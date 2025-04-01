@@ -5,11 +5,12 @@ class Material {
     private $db;
     
     // Attributs corresponding to the Material Table
-    private $id;
-    private $nom;
-    private $description;
+    private $id; 
+    private $nom; 
+    private $description; 
+    private $categorie; 
     private $etat; // 'neuf', 'bon', 'moyen', 'mauvais'
-    private $photo;
+    private $photo; 
     private $disponibilite; // true or false
     
     // Constructor
@@ -41,6 +42,14 @@ class Material {
     public function setDescription($description) {
         $this->description = $description;
     }
+
+    public function getCategorie() {
+        return $this->categorie;
+    }
+
+    public function setCategorie($categorie) {
+        $this->categorie = $categorie;
+    }
     
     public function getEtat() {
         return $this->etat;
@@ -69,21 +78,24 @@ class Material {
     // CRUD methods
     
     // Create a new material
-    public function create($nom, $description, $etat, $photo, $disponibilite = true) {
+    public function create($nom, $description, $categorie, $etat, $photo, $disponibilite = true) {
         try {
             $stmt = $this->db->prepare("
-                INSERT INTO materiels (nom, description, etat, photo, disponibilite) 
-                VALUES (:nom, :description, :etat, :photo, :disponibilite)
+                INSERT INTO materiels (nom, description, categorie, etat, photo, disponibilite) 
+                VALUES (:nom, :description, :categorie, :etat, :photo, :disponibilite)
             ");
             
             $stmt->bindParam(':nom', $nom);
             $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':categorie', $categorie);
             $stmt->bindParam(':etat', $etat);
             $stmt->bindParam(':photo', $photo);
             $stmt->bindParam(':disponibilite', $disponibilite, PDO::PARAM_BOOL);
             
             $stmt->execute();
-            return $this->db->lastInsertId();
+            $this->db->lastInsertId();
+            return true;
+
         } catch(PDOException $e) {
             echo "Erreur de création de matériel: " . $e->getMessage();
             return false;
@@ -101,6 +113,7 @@ class Material {
             if($materialData) {
                 $this->id = $materialData['id'];
                 $this->nom = $materialData['nom'];
+                $this->categorie = $materialData['categorie'];
                 $this->description = $materialData['description'];
                 $this->etat = $materialData['etat'];
                 $this->photo = $materialData['photo'];
@@ -142,18 +155,19 @@ class Material {
             $stmt = $this->db->prepare("
                 UPDATE materiels 
                 SET nom = :nom, description = :description, etat = :etat, 
-                    photo = :photo, disponibilite = :disponibilite 
+                    photo = :photo, disponibilite = :disponibilite, categorie = :categorie 
                 WHERE id = :id
             ");
             
             $stmt->bindParam(':nom', $this->nom);
             $stmt->bindParam(':description', $this->description);
+            $stmt->bindParam(':categorie', $this->categorie);
             $stmt->bindParam(':etat', $this->etat);
             $stmt->bindParam(':photo', $this->photo);
             $stmt->bindParam(':disponibilite', $this->disponibilite, PDO::PARAM_BOOL);
             $stmt->bindParam(':id', $this->id);
-            
-            return $stmt->execute();
+            $stmt->execute();
+            return true;
         } catch(PDOException $e) {
             echo "Erreur de mise à jour de matériel: " . $e->getMessage();
             return false;

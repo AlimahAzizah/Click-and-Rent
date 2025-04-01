@@ -30,57 +30,8 @@
             </div>
             <div class="table-container">
             <h2>Liste des matériaux</h2>
-            <button>Ajouter du matériel</button>
-                <table class="materials-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nom</th>
-                            <th>Catégorie</th>
-                            <th>État</th>
-                            <th>Disponibilité</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>MAT-001</td>
-                            <td>Ordinateur Portable HP EliteBook</td>
-                            <td>Informatique</td>
-                            <td><span class="status-badge new">Neuf</span></td>
-                            <td>Disponible</td>
-                            <td class="actions">
-                                <button class="edit-btn" title="Modifier">✏️</button>
-                                <button class="delete-btn" title="Supprimer">🗑️</button>
-                                <button class="details-btn" title="Voir détails">👁️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MAT-002</td>
-                            <td>Imprimante Laser Epson</td>
-                            <td>Bureautique</td>
-                            <td><span class="status-badge good-state">Bon état</span></td>
-                            <td>Disponible</td>
-                            <td class="actions">
-                                <button class="edit-btn" title="Modifier">✏️</button>
-                                <button class="delete-btn" title="Supprimer">🗑️</button>
-                                <button class="details-btn" title="Voir détails">👁️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MAT-003</td>
-                            <td>Vidéoprojecteur BenQ</td>
-                            <td>Audiovisuel</td>
-                            <td><span class="status-badge out-of-service">Hors service</span></td>
-                            <td>Disponible</td>
-                            <td class="actions">
-                                <button class="edit-btn" title="Modifier">✏️</button>
-                                <button class="delete-btn" title="Supprimer">🗑️</button>
-                                <button class="details-btn" title="Voir détails">👁️</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <a href="index.php?action=showCreateForm"><button>Ajouter du matériel</button></a>
+                <?php include_once __DIR__ . '/../Materials/admin-list.php'; ?>
             </div>
         </section>
     </div>
