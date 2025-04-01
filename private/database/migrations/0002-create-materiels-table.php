@@ -6,7 +6,7 @@ class CreateMaterielsTable {
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nom VARCHAR(100) NOT NULL,
                 description TEXT,
-                categorie VARCHAR(50) NOT NULL,
+                categorie ENUM('Ordinateur', 'Périphérique', 'Réseau & Connectivité', 'Stockage & Sauvegarde', 'Imprimante & Scanner', 'Serveur & Solution Professionnel', 'Accessoire & Divers', 'Matériel Audiovisuel') NOT NULL,
                 etat VARCHAR(50) NOT NULL,
                 photo BLOB,
                 disponibilite BOOLEAN DEFAULT TRUE,
