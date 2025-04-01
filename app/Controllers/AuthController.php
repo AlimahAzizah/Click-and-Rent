@@ -23,7 +23,9 @@ class AuthController {
 
             if ($this->userModel->readByEmail($email)) {
                 if ($this->userModel->login($email, $password)) {
-                    session_start();
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
                     $_SESSION['user_id'] = $this->userModel->getId();
                     $_SESSION['user_role'] = $this->userModel->getRole();
                     
