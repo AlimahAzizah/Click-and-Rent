@@ -34,6 +34,7 @@
                             <th>Date de début</th>
                             <th>Date de fin</th>
                             <th>Statut</th>
+                            <th>Retour</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,7 @@
                             <td>15/03/2023</td>
                             <td>30/03/2023</td>
                             <td><span class="status-badge en_cours">En cours</span></td>
+                            <td><button class="button_valider">Valider le Retour</button></td>
                         </tr>
                     </tbody>
                 </table>

@@ -472,3 +472,33 @@ body {
     justify-content: center;
     gap: 10px;
 }
+
+/* Style pour le bouton Valider le Retour */
+.button_valider {
+    background-color: #28a745; /* Vert */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.button_valider:hover {
+    background-color: #218838; /* Vert plus foncé */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Centrage parfait dans la cellule */
+.materials-table td:last-child {
+    text-align: center;
+    padding: 15px 10px;
+}
