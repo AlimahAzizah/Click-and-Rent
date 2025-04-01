@@ -105,11 +105,7 @@ class LoanController {
         $startDate = filter_input(INPUT_POST, 'start_date', FILTER_SANITIZE_STRING);
         $endDate = filter_input(INPUT_POST, 'end_date', FILTER_SANITIZE_STRING);
         
-        if (!$this->validateDates($startDate, $endDate)) {
-            $_SESSION['error'] = "Dates invalides ou période incorrecte";
-            header('Location: index.php?action=showPanier');
-            exit();
-        }
+        
 
         // Check material availability
         $unavailableMaterials = [];
@@ -140,7 +136,11 @@ class LoanController {
                     'statut' => 'en_attente'
                 ];
 
-                if (!$this->loanModel->create($loanData)) {
+                echo $loanData['id_utilisateur'] . " " . $loanData['id_materiel'] . " " . $loanData['date_debut'] . " " . $loanData['date_fin'] . "<br>";
+
+                if ($this->loanModel->create($loanData)) {
+                    $this->loanModel->create($loanData);
+                } else {
                     throw new PDOException("Erreur lors de la création du prêt pour le matériel $materialId");
                 }
             }

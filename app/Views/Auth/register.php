@@ -25,7 +25,12 @@
                 <div class="ConnectezVousOuCrEzVotreCompte">
                     <span>et créez votre compte</span>
                 </div>
+                
                 <form action= "../public/index.php?action=register" method="POST">
+                    <?php 
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    ?>
                     <div class="InputNom">
                         <input type="text" name="nom" placeholder="Votre nom">
                     </div>
