@@ -23,6 +23,7 @@
                 <li class="nav-item"><a href="index.php?action=showMyAccount">Mes informations</a></li>
                 <li class="nav-item"><a href="index.php?action=showLoanHistory">Historique des prêts</a></li>
                 <li class="nav-item"><a href="index.php?action=showMyCurrentLoan">Demandes en cours</a></li>
+                
             </ul>
         </div>
         

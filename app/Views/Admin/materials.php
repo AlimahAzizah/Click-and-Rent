@@ -26,7 +26,11 @@
         </div>
 
         <section class="material_list">
+            <div class="table-header">
+            </div>
             <div class="table-container">
+            <h2>Liste des matériaux</h2>
+            <button>Ajouter du matériel</button>
                 <table class="materials-table">
                     <thead>
                         <tr>
@@ -34,7 +38,7 @@
                             <th>Nom</th>
                             <th>Catégorie</th>
                             <th>État</th>
-                            <th>Quantité</th>
+                            <th>Disponibilité</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -44,7 +48,7 @@
                             <td>Ordinateur Portable HP EliteBook</td>
                             <td>Informatique</td>
                             <td><span class="status-badge new">Neuf</span></td>
-                            <td>15</td>
+                            <td>Disponible</td>
                             <td class="actions">
                                 <button class="edit-btn" title="Modifier">✏️</button>
                                 <button class="delete-btn" title="Supprimer">🗑️</button>
@@ -56,7 +60,7 @@
                             <td>Imprimante Laser Epson</td>
                             <td>Bureautique</td>
                             <td><span class="status-badge good-state">Bon état</span></td>
-                            <td>8</td>
+                            <td>Disponible</td>
                             <td class="actions">
                                 <button class="edit-btn" title="Modifier">✏️</button>
                                 <button class="delete-btn" title="Supprimer">🗑️</button>
@@ -68,7 +72,7 @@
                             <td>Vidéoprojecteur BenQ</td>
                             <td>Audiovisuel</td>
                             <td><span class="status-badge out-of-service">Hors service</span></td>
-                            <td>2</td>
+                            <td>Disponible</td>
                             <td class="actions">
                                 <button class="edit-btn" title="Modifier">✏️</button>
                                 <button class="delete-btn" title="Supprimer">🗑️</button>
@@ -79,8 +83,6 @@
                 </table>
             </div>
         </section>
-        
-        
     </div>
 </body>
 </html>

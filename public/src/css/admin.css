@@ -16,6 +16,9 @@ body {
     flex-direction: column; /* Ajouté pour empiler header et contenu */
 }
 
+
+
+
 .main-header {
     color: #000;
     line-height: 1;
@@ -293,25 +296,54 @@ body {
     background-color: #e6f7ee;
     color: #555;
 }
+/* Styles pour la section matériel */
 .material_list {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
+    flex: 1;
+    padding: 40px;
+    background-color: #F2F2F2;
 }
 
 .table-container {
-    width: 100%;
-    max-width: 1200px; /* Ajustez cette valeur selon vos besoins */
+    max-width: 100%;
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+.table-container h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.table-container button {
+    background-color: #EA81CC;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.table-container button:hover {
+    background-color: #EA81CC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(253, 139, 0, 0.3);
+}
+
+/* Tableau des matériaux */
 .materials-table {
     width: 100%;
     border-collapse: collapse;
+    clear: both; /* Pour éviter que le tableau ne s'enroule autour du bouton flottant */
 }
 
 .materials-table th {
@@ -320,25 +352,32 @@ body {
     padding: 15px;
     text-align: left;
     font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 .materials-table td {
-    padding: 12px 15px;
+    padding: 15px;
     border-bottom: 1px solid #eee;
     color: #555;
 }
 
 .materials-table tr:hover {
-    background-color: #fafafa;
+    background-color: #f9f9f9;
 }
 
-/* Styles pour les badges d'état */
+.materials-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges d'état pour le matériel */
 .status-badge {
+    display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
-    display: inline-block;
 }
 
 .status-badge.new {
@@ -356,10 +395,10 @@ body {
     color: #dc3545;
 }
 
-/* Styles pour les boutons d'action */
+/* Boutons d'action */
 .actions {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .edit-btn, .delete-btn, .details-btn {
@@ -368,36 +407,68 @@ body {
     cursor: pointer;
     font-size: 16px;
     padding: 5px;
-    border-radius: 4px;
-    transition: all 0.2s;
+    transition: transform 0.2s;
+}
+
+.edit-btn:hover, .delete-btn:hover, .details-btn:hover {
+    transform: scale(1.2);
 }
 
 .edit-btn {
     color: #4e73df;
 }
 
-.edit-btn:hover {
-    background-color: #e7f1ff;
-}
-
 .delete-btn {
     color: #dc3545;
-}
-
-.delete-btn:hover {
-    background-color: #fdecea;
 }
 
 .details-btn {
     color: #6c757d;
 }
 
-.details-btn:hover {
-    background-color: #f8f9fa;
+/* Badge pour statut "En attente" */
+.status-badge.waiting {
+    background-color: #fff3cd;
+    color: #856404;
 }
 
-/* Style pour la colonne quantité */
-.materials-table td:nth-child(5) {
-    text-align: center;
-    font-weight: 500;
+/* Boutons d'action pour les demandes */
+.accept-btn, .reject-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
+.accept-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Alignement des boutons dans la cellule */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
