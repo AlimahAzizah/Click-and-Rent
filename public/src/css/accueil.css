@@ -115,7 +115,7 @@
 }
 
 .connect-btn {
-    background-color: #007BFF;
+    background-color: #FD8B00;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -125,10 +125,14 @@
     transition: background-color 0.3s;
     display: block;
     margin: 20px auto 0;
+    border-radius: 30px;
+    box-shadow: 0 4px 4px rgba(42, 40, 40, 0.4);
+    transition: transform 0.2s ease;
 }
 
 .connect-btn:hover {
-    background-color: #0056b3;
+    background-color: #FD8B00;
+    transform: translateY(-5px);
 }
 
 /* Responsive design */
