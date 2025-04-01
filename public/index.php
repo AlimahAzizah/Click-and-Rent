@@ -8,12 +8,14 @@ require_once __DIR__ . '/../app/Models/Material.php';
 require_once __DIR__ . '/../app/Models/Loan.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
 require_once __DIR__ . '/../app/Controllers/MaterialController.php';
+require_once __DIR__ . '/../app/Controllers/LoanController.php';
 require_once __DIR__ . '/../app/Controllers/CartController.php';
 require_once __DIR__ . '/../app/Middleware/AdminMiddleware.php';
 
 $authController = new AuthController();
 $adminMiddleware = new AdminMiddleware();
 $materialController = new MaterialController();
+$loanController = new LoanController();
 $cartController = new CartController();
 
 // Handle different actions
@@ -259,6 +261,15 @@ if ($action !== null) {
             $cartController->addToCart($id);
             header('Location: index.php?action=getMaterialsCatalogue');
             exit;
+
+        case 'createLoanFromCart':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            }
+            
+            $loanController->createLoanFromCart();
+            break;
 
         
         default:

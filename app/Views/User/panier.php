@@ -30,6 +30,12 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="src/css/panier.css">
     <div class="conteneur">
         <h1 class="titre-panier">Votre panier</h1>
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert alert-danger">
+                <?= htmlspecialchars($_SESSION['error']) ?>
+            </div>
+            <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
         
         <div class="contenu">
             <div class="tableau-wrapper">
@@ -85,7 +91,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <div class="nombre-produits">
                     <?= ($totalItems ?? 0) ?> Produit<?= ($totalItems != 1) ? 's' : '' ?>
                 </div>
-                <form action="index.php?action=submitLoanRequest" method="POST">
+                <form action="index.php?action=createLoanFromCart" method="POST">
                     <button type="submit" class="bouton-reserver">Réserver</button>
                 </form>
             </div>

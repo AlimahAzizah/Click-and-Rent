@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../Models/Loan.php';
 require_once __DIR__ . '/../Models/User.php';
 require_once __DIR__ . '/../Models/Material.php';
-require_once __DIR__ . '/../Utils/Database.php';
+require_once __DIR__ . '/../Models/Database.php';
 
 class LoanController {
     private $loanModel;
@@ -84,6 +84,126 @@ class LoanController {
         
         return $enhancedLoans;
     }
+
+
+
+
+
+
+
+    public function createLoanFromCart() {
+        $this->ensureAuthenticated();
+        
+        // Validate cart existence
+        if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
+            $_SESSION['error'] = "Votre panier est vide";
+            header('Location: index.php?action=showPanier');
+            exit();
+        }
+
+        // Retrieve and validate dates
+        $startDate = filter_input(INPUT_POST, 'start_date', FILTER_SANITIZE_STRING);
+        $endDate = filter_input(INPUT_POST, 'end_date', FILTER_SANITIZE_STRING);
+        
+        if (!$this->validateDates($startDate, $endDate)) {
+            $_SESSION['error'] = "Dates invalides ou période incorrecte";
+            header('Location: index.php?action=showPanier');
+            exit();
+        }
+
+        // Check material availability
+        $unavailableMaterials = [];
+        foreach ($_SESSION['cart'] as $materialId) {
+            if (!$this->isMaterialAvailable($materialId, $startDate, $endDate)) {
+                $unavailableMaterials[] = $materialId;
+            }
+        }
+
+        if (!empty($unavailableMaterials)) {
+            $_SESSION['error'] = "Certains matériels ne sont pas disponibles : " 
+                                . implode(', ', $unavailableMaterials);
+            header('Location: index.php?action=showPanier');
+            exit();
+        }
+
+        // Create loans transaction
+        try {
+            $db = Database::getInstance()->getConnection();
+            $db->beginTransaction();
+
+            foreach ($_SESSION['cart'] as $materialId) {
+                $loanData = [
+                    'id_utilisateur' => $_SESSION['user_id'],
+                    'id_materiel' => $materialId,
+                    'date_debut' => $startDate,
+                    'date_fin' => $endDate,
+                    'statut' => 'en_attente'
+                ];
+
+                if (!$this->loanModel->create($loanData)) {
+                    throw new PDOException("Erreur lors de la création du prêt pour le matériel $materialId");
+                }
+            }
+
+            $db->commit();
+            unset($_SESSION['cart']);
+            $_SESSION['success'] = "Prêt créé avec succès! En attente de confirmation administrateur";
+            header('Location: index.php?action=showUserCurrentLoans');
+            exit();
+
+        } catch (PDOException $e) {
+            $db->rollBack();
+            $_SESSION['error'] = "Erreur lors de la création du prêt : " . $e->getMessage();
+            header('Location: index.php?action=showPanier');
+            exit();
+        }
+    }
+
+    private function validateDates($start, $end) {
+        if (!$start || !$end) return false;
+        
+        $startDate = DateTime::createFromFormat('Y-m-d', $start);
+        $endDate = DateTime::createFromFormat('Y-m-d', $end);
+        $today = new DateTime();
+
+        return $startDate && $endDate &&
+            $startDate >= $today &&
+            $startDate < $endDate;
+    }
+
+    private function isMaterialAvailable($materialId, $startDate, $endDate) {
+        try {
+            $db = Database::getInstance()->getConnection();
+            $stmt = $db->prepare("
+                SELECT COUNT(*) 
+                FROM prets 
+                WHERE id_materiel = :materialId 
+                AND statut NOT IN ('rejeté', 'terminé')
+                AND (
+                    (date_debut <= :endDate AND date_fin >= :startDate)
+                )
+            ");
+            
+            $stmt->execute([
+                ':materialId' => $materialId,
+                ':startDate' => $startDate,
+                ':endDate' => $endDate
+            ]);
+
+            return $stmt->fetchColumn() === 0;
+            
+        } catch (PDOException $e) {
+            error_log("Availability check error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
+
+
+
+
+
 
     // Admin: Get all loan information
     public function getAllLoans() {

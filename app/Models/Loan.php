@@ -70,26 +70,23 @@ class Loan {
     // CRUD Methods
     
     // Create a new loan
-    public function create($id_utilisateur, $id_materiel, $date_debut, $date_fin, $statut = 'en_attente') {
+    public function create($data) {
         try {
             // Check if the material exists and is available
             $material = new Material();
-            if(!$material->readById($id_materiel) || !$material->getDisponibilite()) {
-                return false; // The material does not exist or is not available
-            }
-            
-            $stmt = $this->db->prepare("
-                INSERT INTO prets (id_utilisateur, id_materiel, date_debut, date_fin, statut) 
-                VALUES (:id_utilisateur, :id_materiel, :date_debut, :date_fin, :statut)
+            $db = Database::getInstance()->getConnection();
+            $stmt = $db->prepare("
+                INSERT INTO prets 
+                (id_utilisateur, id_materiel, date_debut, date_fin, statut)
+                VALUES (:user, :material, :start, :end, 'en_attente')
             ");
             
-            $stmt->bindParam(':id_utilisateur', $id_utilisateur);
-            $stmt->bindParam(':id_materiel', $id_materiel);
-            $stmt->bindParam(':date_debut', $date_debut);
-            $stmt->bindParam(':date_fin', $date_fin);
-            $stmt->bindParam(':statut', $statut);
-            
-            $stmt->execute();
+            $stmt->execute([
+                ':user' => $data['id_utilisateur'],
+                ':material' => $data['id_materiel'],
+                ':start' => $data['date_debut'],
+                ':end' => $data['date_fin']
+            ]);
             
             // Mark the material as unavailable if the loan is accepted
             if($statut === 'accepte') {

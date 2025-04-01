@@ -106,6 +106,9 @@
             <h3 class="categorie-name">Matériel audiovisuel</h3>
             </div>
         </div>
+
+        <a href="index.php?action=showBoutique"><button class="connect-btn" >J'accède à la boutique</button></a>
+
     </section>
 
     <section id="pourquoi-nous">
