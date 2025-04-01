@@ -32,6 +32,7 @@ class CartController {
         $this->ensureAuthenticated();
         
         // Get material ID from request
+        $id_materiel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         if (!$id_materiel) {
             $_SESSION['error'] = "ID de matériel invalide";
             header('Location: index.php?action=getMaterialsCatalogue');
@@ -69,5 +70,48 @@ class CartController {
         header('Location: index.php?action=showPanier');
         exit();
     }
+    public function removeFromCart() {
+        $this->ensureAuthenticated();
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_write_close(); // Release session lock for concurrent access
+        session_start(); 
+        
+        $id_materiel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        if (!$id_materiel) {
+            $_SESSION['error'] = "ID de matériel invalide";
+            header('Location: index.php?action=showPanier');
+            exit();
+        }
+
+        error_log("Initial Cart: " . print_r($_SESSION['cart'], true));
+        
+        if (!empty($_SESSION['cart'])) {
+            // Remove all instances of the material ID (quantity support)
+            $newCart = array_filter($_SESSION['cart'], function($item) use ($id_materiel) {
+                return $item !== $id_materiel;
+            });
+            
+            // Check if any items were removed
+            if (count($newCart) !== count($_SESSION['cart'])) {
+                $_SESSION['cart'] = array_values($newCart);
+                $_SESSION['success'] = "Matériel retiré du panier avec succès";
+                
+                // Debug: Log updated cart state
+                error_log("Updated Cart: " . print_r($_SESSION['cart'], true));
+                
+                // Force session write
+                session_write_close();
+            } else {
+                $_SESSION['error'] = "Ce matériel n'est pas dans votre panier";
+            }
+        }
+        
+        header('Location: index.php?action=showPanier');
+        exit();
+    }
+    
 }
 ?>

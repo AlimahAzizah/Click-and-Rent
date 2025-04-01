@@ -1,6 +1,24 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+session_write_close();
+session_start();
 require_once __DIR__ . '/../../Models/Material.php';
 $materialModel = new Material();
+
+$cleanCart = [];
+if (!empty($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $materialId) {
+        if ($materialModel->readById($materialId) && $materialModel->getDisponibilite()) {
+            $cleanCart[] = $materialId;
+        }
+    }
+}
+$_SESSION['cart'] = $cleanCart;
+session_write_close();
+session_start();
+
 
 // Start session if not already started
 if (session_status() == PHP_SESSION_NONE) {
@@ -22,6 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             <th>Nom du produit</th>
                             <th>Date de début</th>
                             <th>Date de fin</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,31 +50,31 @@ if (session_status() == PHP_SESSION_NONE) {
                                 if ($materialModel->readById($materialId) && $materialModel->getDisponibilite()):
                                     $totalItems++; ?>
                                     <tr>
-                                        <td>
-                                            <?php if ($materialModel->getPhoto()): ?>
+                                        <td><?php if ($materialModel->getPhoto()): ?>
                                                 <img src="<?= htmlspecialchars($materialModel->getPhoto()) ?>" 
                                                      alt="<?= htmlspecialchars($materialModel->getNom()) ?>">
                                             <?php endif; ?>
                                         </td>
                                         <td><?= htmlspecialchars($materialModel->getNom()) ?></td>
-                                        <td>
-                                            <input type="date" 
+                                        <td><input type="date" 
                                                    class="date-input" 
                                                    name="date_debut[<?= $materialId ?>]"
                                                    min="<?= date('Y-m-d') ?>">
                                         </td>
-                                        <td>
-                                            <input type="date" 
+                                        <td><input type="date" 
                                                    class="date-input" 
                                                    name="date_fin[<?= $materialId ?>]"
                                                    min="<?= date('Y-m-d') ?>">
                                         </td>
+                                        <td>
+                                            <a href="index.php?action=removeFromCart&id=<?= $materialId ?>" 
+                                               class="bouton-supprimer"
+                                               onclick="return confirm('Retirer cet article de votre panier ?')">
+                                                Supprimer
+                                            </a>
+                                        </td>
                                     </tr>
-                                <?php else: 
-                                    // Remove unavailable items from cart
-                                    unset($_SESSION['cart'][array_search($materialId, $_SESSION['cart'])]);
-                                    $_SESSION['error'] = "Un ou plusieurs articles n'étaient plus disponibles";
-                                endif;
+                                <?php endif;
                             endforeach; 
                         endif; ?>
                     </tbody>

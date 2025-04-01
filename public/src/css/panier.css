@@ -141,6 +141,23 @@ body {
     background-color: #f0f0f0;
 }
 
+.bouton-supprimer {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+
+.bouton-supprimer:hover {
+    background-color: #c82333;
+    color: white;
+    text-decoration: none;
+}
 .error-message {
     color: #dc3545;
     text-align: center;
@@ -204,5 +221,9 @@ body {
     
     .nombre-produits {
         font-size: 20px;
+    }
+    .bouton-supprimer {
+        padding: 4px 8px;
+        font-size: 14px;
     }
 }
