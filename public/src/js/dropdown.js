@@ -1,24 +1,17 @@
-// JavaScript pour la fonctionnalité du menu déroulant
 document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionne le bouton qui déclenche le menu déroulant
-    const dropdownButton = document.getElementById('materielsBtn');
-    // Sélectionne le menu déroulant
-    const dropdownMenu = document.getElementById('dropdownMenu');
+  const dropdownBtn = document.querySelector('.dropdown-btn');
+  const dropdownContent = document.querySelector('.dropdown-content');
   
-    // Ajoute un écouteur d'événement au clic sur le bouton
-    dropdownButton.addEventListener('click', function(event) {
-      // Empêche la propagation de l'événement vers le document
-      event.stopPropagation();
-      // Toggle la classe "show" pour afficher/masquer le menu
-      dropdownMenu.classList.toggle('show');
-    });
-  
-    // Ajoute un écouteur d'événement au clic sur le document
-    document.addEventListener('click', function(event) {
-      // Si le clic n'est ni sur le menu ni sur le bouton, ferme le menu
-      if (!dropdownMenu.contains(event.target) && !dropdownButton.contains(event.target)) {
-        dropdownMenu.classList.remove('show');
-      }
-    });
+  dropdownBtn.addEventListener('click', function() {
+      dropdownContent.classList.toggle('show');
   });
   
+  // Fermer le menu déroulant si l'utilisateur clique en dehors
+  window.addEventListener('click', function(event) {
+      if (!event.target.matches('.dropdown-btn') && !event.target.matches('.dropdown-btn *')) {
+          if (dropdownContent.classList.contains('show')) {
+              dropdownContent.classList.remove('show');
+          }
+      }
+  });
+});
