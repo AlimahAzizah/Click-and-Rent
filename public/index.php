@@ -97,14 +97,53 @@ if ($action !== null) {
             include __DIR__ . '/../app/Views/User/panier.php';
 
             exit;    
-        case 'showAdminDashboard':
+        case 'showAdminMaterials':
             if (!isset($_SESSION['user_id'])) {
                 $authController->showLogin();
                 exit;
             } 
 
             if ($adminMiddleware->handle()) {
-                include __DIR__ . '/../app/Views/Admin/dashboard.php';
+                include __DIR__ . '/../app/Views/Admin/materials.php';
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'showAdminLoanHistory':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                include __DIR__ . '/../app/Views/Admin/loan-history.php';
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+        
+        case 'showAdminCurrentLoan':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                include __DIR__ . '/../app/Views/Admin/current-loan.php';
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+        
+        case 'showAdminWaitingLoan':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                include __DIR__ . '/../app/Views/Admin/waiting-loan.php';
             } else {
                 include __DIR__ . '/../app/Views/Errors/403.php';
             }
