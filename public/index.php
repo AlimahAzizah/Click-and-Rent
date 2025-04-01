@@ -4,15 +4,19 @@ session_start();
 
 // Include necessary files
 require_once __DIR__ . '/../app/Models/User.php';
+require_once __DIR__ . '/../app/Models/Material.php';
+require_once __DIR__ . '/../app/Models/Loan.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
+require_once __DIR__ . '/../app/Controllers/MaterialController.php';
 require_once __DIR__ . '/../app/Middleware/AdminMiddleware.php';
-require_once __DIR__ . '/../app/Models/Database.php';
 
 $authController = new AuthController();
 $adminMiddleware = new AdminMiddleware();
+$materialController = new MaterialController();
 
 // Handle different actions
 $action = isset($_GET['action']) ? $_GET['action'] : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($action !== null) {
     switch ($action) {
@@ -97,6 +101,7 @@ if ($action !== null) {
             include __DIR__ . '/../app/Views/User/panier.php';
 
             exit;    
+            
         case 'showAdminMaterials':
             if (!isset($_SESSION['user_id'])) {
                 $authController->showLogin();
@@ -149,9 +154,97 @@ if ($action !== null) {
             }
             exit;
 
+        case 'showCreateForm':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                $materialController->showCreateForm();
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'showUpdateForm':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                $materialController->showUpdateForm();
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'getAllMaterials':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                include __DIR__ . '/../app/Views/Admin/materials.php';
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'updateMaterial':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                $materialController->updateMaterial($id);
+                header('Location: index.php?action=getAllMaterials');
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'createMaterial':
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                $materialController->createMaterial();
+                header('Location: index.php?action=getAllMaterials');
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'deleteMaterial': 
+            if (!isset($_SESSION['user_id'])) {
+                $authController->showLogin();
+                exit;
+            } 
+
+            if ($adminMiddleware->handle()) {
+                $materialController->deleteMaterial($id);
+                header('Location: index.php?action=getAllMaterials');
+            } else {
+                include __DIR__ . '/../app/Views/Errors/403.php';
+            }
+            exit;
+
+        case 'showMaterialDetails':
+
+            $materialController->showMaterialDetails($id);
+            exit;
+
         
         default:
+            include __DIR__ . '/../app/Views/Layouts/header.php';
             include __DIR__ . '/../app/Views/Public/accueil.php';
+            include __DIR__ . '/../app/Views/Layouts/footer.php';
             exit;
     }
 } else {
