@@ -10,7 +10,7 @@
 - Admin dashboard for validating/refusing requests and managing returns
 - CRUD management for equipment (add, edit, delete)
 
-​## Tech Stack
+## Tech Stack
 - PHP (MVC architecture)
 - MariaDB (or MySQL compatible)
 - HTML, CSS, JavaScript
